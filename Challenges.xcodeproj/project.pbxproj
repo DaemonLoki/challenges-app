@@ -15,6 +15,10 @@
 		AC325FFD2551EE40000D14B7 /* Challenges.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AC325FFB2551EE40000D14B7 /* Challenges.xcdatamodeld */; };
 		AC3260082551EE41000D14B7 /* ChallengesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3260072551EE41000D14B7 /* ChallengesTests.swift */; };
 		AC3260132551EE41000D14B7 /* ChallengesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3260122551EE41000D14B7 /* ChallengesUITests.swift */; };
+		AC3260282551FA24000D14B7 /* Challenge+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3260242551FA24000D14B7 /* Challenge+CoreDataClass.swift */; };
+		AC3260292551FA24000D14B7 /* Challenge+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3260252551FA24000D14B7 /* Challenge+CoreDataProperties.swift */; };
+		AC32602A2551FA24000D14B7 /* Action+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3260262551FA24000D14B7 /* Action+CoreDataClass.swift */; };
+		AC32602B2551FA24000D14B7 /* Action+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3260272551FA24000D14B7 /* Action+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +53,10 @@
 		AC32600E2551EE41000D14B7 /* ChallengesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChallengesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC3260122551EE41000D14B7 /* ChallengesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengesUITests.swift; sourceTree = "<group>"; };
 		AC3260142551EE41000D14B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AC3260242551FA24000D14B7 /* Challenge+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Challenge+CoreDataClass.swift"; path = "Challenges/Challenge+CoreDataClass.swift"; sourceTree = "<group>"; };
+		AC3260252551FA24000D14B7 /* Challenge+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Challenge+CoreDataProperties.swift"; path = "Challenges/Challenge+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		AC3260262551FA24000D14B7 /* Action+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Action+CoreDataClass.swift"; path = "Challenges/Action+CoreDataClass.swift"; sourceTree = "<group>"; };
+		AC3260272551FA24000D14B7 /* Action+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Action+CoreDataProperties.swift"; path = "Challenges/Action+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +87,10 @@
 		AC325FE42551EE3F000D14B7 = {
 			isa = PBXGroup;
 			children = (
+				AC3260242551FA24000D14B7 /* Challenge+CoreDataClass.swift */,
+				AC3260252551FA24000D14B7 /* Challenge+CoreDataProperties.swift */,
+				AC3260262551FA24000D14B7 /* Action+CoreDataClass.swift */,
+				AC3260272551FA24000D14B7 /* Action+CoreDataProperties.swift */,
 				AC325FEF2551EE40000D14B7 /* Challenges */,
 				AC3260062551EE41000D14B7 /* ChallengesTests */,
 				AC3260112551EE41000D14B7 /* ChallengesUITests */,
@@ -265,10 +277,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC3260282551FA24000D14B7 /* Challenge+CoreDataClass.swift in Sources */,
 				AC325FFA2551EE40000D14B7 /* Persistence.swift in Sources */,
 				AC325FFD2551EE40000D14B7 /* Challenges.xcdatamodeld in Sources */,
+				AC32602B2551FA24000D14B7 /* Action+CoreDataProperties.swift in Sources */,
 				AC325FF32551EE40000D14B7 /* ContentView.swift in Sources */,
 				AC325FF12551EE40000D14B7 /* ChallengesApp.swift in Sources */,
+				AC3260292551FA24000D14B7 /* Challenge+CoreDataProperties.swift in Sources */,
+				AC32602A2551FA24000D14B7 /* Action+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
