@@ -23,7 +23,7 @@ struct ContentView: View {
         NavigationView {
             List {
                 ForEach(items) { item in
-                    Text("Item at \(item.name)")
+                    Text("\(item.name)")
                 }
             }
             .navigationTitle("Challenges")

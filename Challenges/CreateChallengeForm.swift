@@ -9,6 +9,9 @@ import SwiftUI
 
 struct CreateChallengeForm: View {
     
+    @Environment(\.managedObjectContext) private var viewContext
+    @Environment (\.presentationMode) var presentationMode
+    
     // Basic properties
     @State private var name: String = ""
     @State private var goal: String = ""
@@ -56,13 +59,46 @@ struct CreateChallengeForm: View {
             
             Section {
                 Button(action: {
-                       // TODO: save action
+                    let challenge = tryCreateChallenge()
+                    do {
+                        try viewContext.save()
+                        print("Saved \(challenge.name) successful")
+                        presentationMode.wrappedValue.dismiss()
+                    } catch {
+                        print(error.localizedDescription)
+                    }
                 }) {
                     Text("Create")
                 }.disabled(infoMissing)
             }
         }
         .navigationTitle("New Challenge")
+    }
+    
+    func tryCreateChallenge() -> Challenge {
+        let challenge = Challenge(context: viewContext)
+        
+        // set basic data
+        challenge.id = UUID()
+        challenge.name = name
+        challenge.start = Date()
+        challenge.goal = Double(goal) ?? 0
+        
+        // set additional data
+        if includeEndDate {
+            challenge.end = endDate
+        }
+        
+        if includeDailyGoal {
+            challenge.regularGoal = Double(dailyGoal) ?? 0
+        }
+        
+        // set data that is not supported yet
+        challenge.frequency = "daily"
+        challenge.isActive = true
+        challenge.sendReminders = false
+        
+        return challenge
     }
 }
 

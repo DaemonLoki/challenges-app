@@ -16,6 +16,7 @@ struct PersistenceController {
         
         for i in 0..<10 {
             let newChallenge = Challenge(context: viewContext)
+            newChallenge.id = UUID()
             newChallenge.start = Date()
             newChallenge.name = "Challenge \(i)"
             newChallenge.frequency = "daily"
