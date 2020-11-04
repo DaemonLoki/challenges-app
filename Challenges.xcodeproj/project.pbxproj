@@ -20,6 +20,7 @@
 		AC32602A2551FA24000D14B7 /* Action+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3260262551FA24000D14B7 /* Action+CoreDataClass.swift */; };
 		AC32602B2551FA24000D14B7 /* Action+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3260272551FA24000D14B7 /* Action+CoreDataProperties.swift */; };
 		AC32603025520ADC000D14B7 /* CreateChallengeForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC32602F25520ADC000D14B7 /* CreateChallengeForm.swift */; };
+		AC8650EB2553541600CD4766 /* ChallengeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8650EA2553541600CD4766 /* ChallengeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		AC3260262551FA24000D14B7 /* Action+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Action+CoreDataClass.swift"; path = "Challenges/Action+CoreDataClass.swift"; sourceTree = "<group>"; };
 		AC3260272551FA24000D14B7 /* Action+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Action+CoreDataProperties.swift"; path = "Challenges/Action+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		AC32602F25520ADC000D14B7 /* CreateChallengeForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChallengeForm.swift; sourceTree = "<group>"; };
+		AC8650EA2553541600CD4766 /* ChallengeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 			children = (
 				AC325FF02551EE40000D14B7 /* ChallengesApp.swift */,
 				AC325FF22551EE40000D14B7 /* ContentView.swift */,
+				AC8650EA2553541600CD4766 /* ChallengeView.swift */,
 				AC32602F25520ADC000D14B7 /* CreateChallengeForm.swift */,
 				AC325FF42551EE40000D14B7 /* Assets.xcassets */,
 				AC325FF92551EE40000D14B7 /* Persistence.swift */,
@@ -288,6 +291,7 @@
 				AC32603025520ADC000D14B7 /* CreateChallengeForm.swift in Sources */,
 				AC325FF12551EE40000D14B7 /* ChallengesApp.swift in Sources */,
 				AC3260292551FA24000D14B7 /* Challenge+CoreDataProperties.swift in Sources */,
+				AC8650EB2553541600CD4766 /* ChallengeView.swift in Sources */,
 				AC32602A2551FA24000D14B7 /* Action+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

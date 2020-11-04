@@ -11,19 +11,24 @@ import CoreData
 struct ContentView: View {
     
     @Environment(\.managedObjectContext) private var viewContext
-
+    
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Challenge.start, ascending: true)],
         animation: .default)
     private var items: FetchedResults<Challenge>
     
     @State private var showCreateChallengeSheet = false
-
+    
     var body: some View {
         NavigationView {
             List {
                 ForEach(items) { item in
-                    Text("\(item.name)")
+                    NavigationLink(
+                        destination: ChallengeView(challenge: item),
+                        label: {
+                            Text("\(item.name)")
+                        }
+                    )
                 }
             }
             .navigationTitle("Challenges")

@@ -67,3 +67,18 @@ extension Challenge {
 extension Challenge : Identifiable {
 
 }
+
+extension Challenge {
+    static var preview: Challenge {
+        let challenge = Challenge()
+        challenge.id = UUID()
+        challenge.start = Date()
+        challenge.name = "Challenge Preview"
+        challenge.frequency = "daily"
+        challenge.goal = 3000
+        challenge.regularGoal = 100
+        challenge.sendReminders = false
+        challenge.isActive = true
+        return challenge
+    }
+}
