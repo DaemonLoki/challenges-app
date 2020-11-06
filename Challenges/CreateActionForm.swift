@@ -18,6 +18,10 @@ struct CreateActionForm: View {
     
     var challenge: Challenge
     
+    var infoMissing: Bool {
+        Double(count) == nil
+    }
+    
     var body: some View {
         NavigationView {
             Form {
@@ -48,7 +52,7 @@ struct CreateActionForm: View {
                     presentationMode.wrappedValue.dismiss()
                 }, label: {
                     Text("Create")
-                })
+                }).disabled(infoMissing)
             }
             .navigationBarTitle("Add")
         }
