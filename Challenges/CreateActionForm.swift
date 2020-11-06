@@ -20,6 +20,7 @@ struct CreateActionForm: View {
         Form {
             Section(header: Text("Count")) {
                 TextField("Count", text: $count)
+                    .keyboardType(.decimalPad)
             }
             
             Button(action: {
@@ -42,6 +43,7 @@ struct CreateActionForm_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
             CreateActionForm(challenge: Challenge.preview)
+                .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
         }
     }
 }

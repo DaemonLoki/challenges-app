@@ -13,7 +13,7 @@ struct ChallengeView: View {
     
     @State private var showCreateActionSheet = false
     
-    var challenge: Challenge
+    @ObservedObject var challenge: Challenge
     
     var totalCount: Double {
         return challenge.actions?.array
@@ -68,5 +68,6 @@ struct ChallengeView: View {
 struct ChallengeView_Previews: PreviewProvider {
     static var previews: some View {
         ChallengeView(challenge: Challenge.preview)
+            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }

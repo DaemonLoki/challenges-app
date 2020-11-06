@@ -33,6 +33,7 @@ struct CreateChallengeForm: View {
                 TextField("Name", text: $name)
                 
                 TextField("Goal", text: $goal)
+                    .keyboardType(.decimalPad)
             }
 
             Section(header: Text("End date")) {
@@ -106,6 +107,7 @@ struct CreateChallengeForm_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
             CreateChallengeForm()
+                .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
         }
     }
 }
