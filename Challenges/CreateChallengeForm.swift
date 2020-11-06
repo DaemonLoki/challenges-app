@@ -28,52 +28,54 @@ struct CreateChallengeForm: View {
     }
     
     var body: some View {
-        Form {
-            Section(header: Text("Basics")) {
-                TextField("Name", text: $name)
+        NavigationView {
+            Form {
+                Section(header: Text("Basics")) {
+                    TextField("Name", text: $name)
+                    
+                    TextField("Goal", text: $goal)
+                        .keyboardType(.decimalPad)
+                }
                 
-                TextField("Goal", text: $goal)
-                    .keyboardType(.decimalPad)
-            }
-
-            Section(header: Text("End date")) {
-                Toggle(isOn: $includeEndDate.animation(.easeInOut), label: {
-                    Text("Include end date")
-                })
-                
-                if includeEndDate {
-                    DatePicker(selection: $endDate, in: Date()..., displayedComponents: .date) {
-                        Text("Select end date:")
+                Section(header: Text("End date")) {
+                    Toggle(isOn: $includeEndDate.animation(.easeInOut), label: {
+                        Text("Include end date")
+                    })
+                    
+                    if includeEndDate {
+                        DatePicker(selection: $endDate, in: Date()..., displayedComponents: .date) {
+                            Text("Select end date:")
+                        }
                     }
                 }
-            }
-            
-            Section(header: Text("Daily goal")) {
-                Toggle(isOn: $includeDailyGoal.animation(.easeInOut), label: {
-                    Text("Include daily goal")
-                })
                 
-                if includeDailyGoal {
-                    TextField("Add daily goal", text: $dailyGoal)
+                Section(header: Text("Daily goal")) {
+                    Toggle(isOn: $includeDailyGoal.animation(.easeInOut), label: {
+                        Text("Include daily goal")
+                    })
+                    
+                    if includeDailyGoal {
+                        TextField("Add daily goal", text: $dailyGoal)
+                    }
+                }
+                
+                Section {
+                    Button(action: {
+                        let challenge = tryCreateChallenge()
+                        do {
+                            try viewContext.save()
+                            print("Saved \(challenge.name) successful")
+                            presentationMode.wrappedValue.dismiss()
+                        } catch {
+                            print(error.localizedDescription)
+                        }
+                    }) {
+                        Text("Create")
+                    }.disabled(infoMissing)
                 }
             }
-            
-            Section {
-                Button(action: {
-                    let challenge = tryCreateChallenge()
-                    do {
-                        try viewContext.save()
-                        print("Saved \(challenge.name) successful")
-                        presentationMode.wrappedValue.dismiss()
-                    } catch {
-                        print(error.localizedDescription)
-                    }
-                }) {
-                    Text("Create")
-                }.disabled(infoMissing)
-            }
+            .navigationTitle("New Challenge")
         }
-        .navigationTitle("New Challenge")
     }
     
     func tryCreateChallenge() -> Challenge {
