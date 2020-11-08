@@ -30,17 +30,31 @@ struct ContentView: View {
                         }
                     )
                 }
+                .onDelete(perform: removeChallenges)
             }
             .navigationTitle("Challenges")
-            .navigationBarItems(trailing: Button(action: {
-                showCreateChallengeSheet = true
-            }, label: {
-                Image(systemName: "plus.circle")
-            }))
+            .navigationBarItems(trailing: HStack {
+                EditButton()
+                
+                Button(action: {
+                    showCreateChallengeSheet = true
+                }, label: {
+                    Image(systemName: "plus.circle")
+                })
+            })
             .sheet(isPresented: $showCreateChallengeSheet, content: {
                 CreateChallengeForm()
             })
         }
+    }
+    
+    func removeChallenges(at offsets: IndexSet) {
+        for index in offsets {
+            let challenge = items[index]
+            viewContext.delete(challenge)
+        }
+        
+        try? viewContext.save()
     }
 }
 
