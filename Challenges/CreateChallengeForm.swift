@@ -56,6 +56,7 @@ struct CreateChallengeForm: View {
                     
                     if includeDailyGoal {
                         TextField("Add daily goal", text: $dailyGoal)
+                            .keyboardType(.decimalPad)
                     }
                 }
                 
