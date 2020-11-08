@@ -28,7 +28,7 @@ struct ChallengeView: View {
     var body: some View {
         VStack {
             Text("Current value")
-            Text("\(Int(totalCount))")
+            Text("\(totalCount)")
                 .font(.largeTitle)
             Spacer()
         }
