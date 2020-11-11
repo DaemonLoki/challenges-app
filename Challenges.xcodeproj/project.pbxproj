@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC0A55E8255C754D00F703FE /* LinearGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0A55E7255C754D00F703FE /* LinearGradient.swift */; };
+		AC0A55ED255C770200F703FE /* Color+Gradients.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0A55EC255C770200F703FE /* Color+Gradients.swift */; };
 		AC325FF12551EE40000D14B7 /* ChallengesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC325FF02551EE40000D14B7 /* ChallengesApp.swift */; };
 		AC325FF32551EE40000D14B7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC325FF22551EE40000D14B7 /* ContentView.swift */; };
 		AC325FF52551EE40000D14B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC325FF42551EE40000D14B7 /* Assets.xcassets */; };
@@ -42,6 +44,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AC0A55E7255C754D00F703FE /* LinearGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinearGradient.swift; sourceTree = "<group>"; };
+		AC0A55EC255C770200F703FE /* Color+Gradients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Gradients.swift"; sourceTree = "<group>"; };
 		AC325FED2551EE40000D14B7 /* Challenges.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Challenges.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC325FF02551EE40000D14B7 /* ChallengesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengesApp.swift; sourceTree = "<group>"; };
 		AC325FF22551EE40000D14B7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -127,6 +131,8 @@
 				AC325FFE2551EE40000D14B7 /* Info.plist */,
 				AC325FFB2551EE40000D14B7 /* Challenges.xcdatamodeld */,
 				AC325FF62551EE40000D14B7 /* Preview Content */,
+				AC0A55E7255C754D00F703FE /* LinearGradient.swift */,
+				AC0A55EC255C770200F703FE /* Color+Gradients.swift */,
 			);
 			path = Challenges;
 			sourceTree = "<group>";
@@ -290,11 +296,13 @@
 				AC325FFA2551EE40000D14B7 /* Persistence.swift in Sources */,
 				AC325FFD2551EE40000D14B7 /* Challenges.xcdatamodeld in Sources */,
 				AC32602B2551FA24000D14B7 /* Action+CoreDataProperties.swift in Sources */,
+				AC0A55E8255C754D00F703FE /* LinearGradient.swift in Sources */,
 				AC325FF32551EE40000D14B7 /* ContentView.swift in Sources */,
 				AC32603025520ADC000D14B7 /* CreateChallengeForm.swift in Sources */,
 				AC325FF12551EE40000D14B7 /* ChallengesApp.swift in Sources */,
 				AC3260292551FA24000D14B7 /* Challenge+CoreDataProperties.swift in Sources */,
 				ACA1E50F2554AD6300E18CE7 /* CreateActionForm.swift in Sources */,
+				AC0A55ED255C770200F703FE /* Color+Gradients.swift in Sources */,
 				AC8650EB2553541600CD4766 /* ChallengeView.swift in Sources */,
 				AC32602A2551FA24000D14B7 /* Action+CoreDataClass.swift in Sources */,
 			);
