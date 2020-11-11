@@ -10,13 +10,13 @@ import SwiftUI
 struct CreateActionForm: View {
     
     @Environment(\.managedObjectContext) private var viewContext
-    @Environment (\.presentationMode) var presentationMode
     
     @State private var count = ""
     @State private var happenedInPast = false
     @State private var actionDate = Date()
     
     var challenge: Challenge
+    var toggle: () -> Void
     
     var infoMissing: Bool {
         Double(count) == nil
@@ -49,12 +49,17 @@ struct CreateActionForm: View {
                     action.date = happenedInPast ? actionDate : Date()
                     
                     try? viewContext.save()
-                    presentationMode.wrappedValue.dismiss()
+                    toggle()
                 }, label: {
                     Text("Create")
                 }).disabled(infoMissing)
             }
             .navigationBarTitle("Add")
+            .navigationBarItems(trailing: Button(action: {
+                toggle()
+            }, label: {
+                Image(systemName: "xmark")
+            }))
         }
     }
 }
@@ -62,7 +67,7 @@ struct CreateActionForm: View {
 struct CreateActionForm_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            CreateActionForm(challenge: Challenge.preview)
+            CreateActionForm(challenge: Challenge.preview) {}
                 .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
         }
     }

@@ -10,8 +10,10 @@ import SwiftUI
 struct ChallengeView: View {
     
     @Environment(\.managedObjectContext) private var viewContext
+    @Namespace var namespace
     
     @State private var showCreateActionSheet = false
+    @State private var createActionExpanded = false
     
     @ObservedObject var challenge: Challenge
     
@@ -26,22 +28,64 @@ struct ChallengeView: View {
     }
     
     var body: some View {
-        VStack {
-            Spacer()
-            Text("Current value")
-            Text(String(format: "%.0f", totalCount))
-                .font(.largeTitle)
-            Spacer()
+        ZStack {
+            VStack {
+                Spacer()
+                Text("Current value")
+                Text(String(format: "%.0f", totalCount))
+                    .font(.largeTitle)
+                Spacer()
+                
+            }
+            .navigationTitle(challenge.name)
+            .navigationBarItems(trailing: Button(action: {
+                showCreateActionSheet = true
+            }, label: {
+                Image(systemName: "plus.circle")
+            }))
+            .sheet(isPresented: $showCreateActionSheet, content: {
+                CreateActionForm(challenge: challenge) {}
+            })
+            
+            VStack {
+                Spacer()
+                
+                HStack {
+                    Spacer()
+                    
+                    CreateActionContainer(challenge: challenge, expanded: $createActionExpanded) {
+                        withAnimation(.spring()) {
+                            createActionExpanded.toggle()
+                        }
+                    }
+                    .matchedGeometryEffect(id: "createAction", in: namespace, isSource: !createActionExpanded)
+                    .frame(width: 60, height: 60)
+                    .onTapGesture {
+                        withAnimation(.spring()) {
+                            createActionExpanded.toggle()
+                        }
+                    }
+                    
+                }
+                .padding()
+            }
+            
+            if createActionExpanded {
+                VStack {
+                    Spacer()
+                    
+                    CreateActionContainer(challenge: challenge, expanded: $createActionExpanded) {
+                        withAnimation(.spring()) {
+                            createActionExpanded.toggle()
+                        }
+                    }
+                    .matchedGeometryEffect(id: "createAction", in: namespace)
+                    .frame(height: 550)
+                    .clipShape(RoundedRectangle(cornerRadius: 25.0, style: .continuous))
+                }
+                .transition(.opacity)
+            }
         }
-        .navigationTitle(challenge.name)
-        .navigationBarItems(trailing: Button(action: {
-            showCreateActionSheet = true
-        }, label: {
-            Image(systemName: "plus.circle")
-        }))
-        .sheet(isPresented: $showCreateActionSheet, content: {
-            CreateActionForm(challenge: challenge)
-        })
     }
 }
 
