@@ -10,23 +10,23 @@ import CoreData
 
 struct ContentView: View {
     
-    @Environment(\.managedObjectContext) private var viewContext
+    @Environment(\.managedObjectContext) var managedObjectContext
     
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Challenge.start, ascending: true)],
         animation: .default)
-    private var items: FetchedResults<Challenge>
+    private var challenges: FetchedResults<Challenge>
     
     @State private var showCreateChallengeSheet = false
     
     var body: some View {
         NavigationView {
             List {
-                ForEach(items) { item in
+                ForEach(challenges) { challenge in
                     NavigationLink(
-                        destination: ChallengeView(challenge: item),
+                        destination: ChallengeView(challenge: challenge),
                         label: {
-                            Text("\(item.name)")
+                            Text("\(challenge.unwrappedName)")
                         }
                     )
                 }
@@ -50,11 +50,17 @@ struct ContentView: View {
     
     func removeChallenges(at offsets: IndexSet) {
         for index in offsets {
-            let challenge = items[index]
-            viewContext.delete(challenge)
+            let challenge = challenges[index]
+            managedObjectContext.delete(challenge)
         }
         
-        try? viewContext.save()
+        if (managedObjectContext.hasChanges) {
+            do {
+                try managedObjectContext.save()
+            } catch  {
+                print("Error occurred: \(error)")
+            }
+        }
     }
 }
 

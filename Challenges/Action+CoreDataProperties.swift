@@ -2,7 +2,7 @@
 //  Action+CoreDataProperties.swift
 //  Challenges
 //
-//  Created by Stefan Blos on 03.11.20.
+//  Created by Stefan Blos on 18.11.20.
 //
 //
 
@@ -19,6 +19,10 @@ extension Action {
     @NSManaged public var count: Double
     @NSManaged public var date: Date?
     @NSManaged public var challenge: Challenge?
+    
+    var unwrappedDate: Date {
+        date ?? Date()
+    }
 
 }
 

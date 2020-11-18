@@ -18,13 +18,11 @@ struct ChallengeView: View {
     @ObservedObject var challenge: Challenge
     
     var totalCount: Double {
-        return challenge.actions?.array
-            .compactMap { $0 as? Action }
+        return challenge.actionsArray
             .map { $0.count }
             .reduce(0.0, { accumulated, nextValue in
                 accumulated + nextValue
             })
-            ?? 0.0
     }
     
     var body: some View {
@@ -37,7 +35,7 @@ struct ChallengeView: View {
                 Spacer()
                 
             }
-            .navigationTitle(challenge.name)
+            .navigationTitle(challenge.unwrappedName)
             .navigationBarItems(trailing: Button(action: {
                 showCreateActionSheet = true
             }, label: {

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CreateActionForm: View {
     
-    @Environment(\.managedObjectContext) private var viewContext
+    @Environment(\.managedObjectContext) private var managedObjectContext
     
     @State private var count = ""
     @State private var happenedInPast = false
@@ -43,12 +43,20 @@ struct CreateActionForm: View {
                 }
                 
                 Button(action: {
-                    let action = Action(context: viewContext)
-                    action.challenge = challenge
+                    let action = Action(context: managedObjectContext)
+//                    action.challenge = challenge
                     action.count = Double(count) ?? 0.0
                     action.date = happenedInPast ? actionDate : Date()
                     
-                    try? viewContext.save()
+                    challenge.addToActions(action)
+                    
+                    print("Challenge for Action is: \(action.challenge)")
+                    
+                    do {
+                        try managedObjectContext.save()
+                    } catch {
+                        print("Error occurred: \(error)")
+                    }
                     toggle()
                 }, label: {
                     Text("Create")

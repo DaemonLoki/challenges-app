@@ -65,7 +65,7 @@ struct CreateChallengeForm: View {
                         let challenge = tryCreateChallenge()
                         do {
                             try viewContext.save()
-                            print("Saved \(challenge.name) successful")
+                            print("Saved \(challenge.unwrappedName) successful")
                             presentationMode.wrappedValue.dismiss()
                         } catch {
                             print(error.localizedDescription)

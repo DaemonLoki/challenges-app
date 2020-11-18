@@ -13,6 +13,8 @@ struct CreateActionContainer: View {
     @Binding var expanded: Bool
     var toggle: () -> Void
     
+    @State private var currentScale: CGFloat = 0
+    
     var body: some View {
         HStack {
             Spacer()
@@ -23,6 +25,17 @@ struct CreateActionContainer: View {
                     CreateActionForm(challenge: challenge) {
                         toggle()
                     }
+                    .gesture(
+                        DragGesture().onChanged { value in
+                            self.currentScale = value.translation.height
+                        }
+                        .onEnded { value in
+                            if value.translation.height > 100 {
+                                toggle()
+                            }
+                        })
+                    
+                    .scaleEffect(1 - (currentScale / 1000))
                 } else {
                     Image(systemName: "plus")
                         .foregroundColor(.white)
