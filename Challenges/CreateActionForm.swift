@@ -50,7 +50,7 @@ struct CreateActionForm: View {
                     
                     challenge.addToActions(action)
                     
-                    print("Challenge for Action is: \(action.challenge)")
+                    print("Challenge for Action is: \(action.challenge?.unwrappedName ?? "Unknown")")
                     
                     do {
                         try managedObjectContext.save()

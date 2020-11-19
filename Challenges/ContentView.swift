@@ -34,12 +34,10 @@ struct ContentView: View {
             }
             .navigationTitle("Challenges")
             .navigationBarItems(trailing: HStack {
-                EditButton()
-                
                 Button(action: {
                     showCreateChallengeSheet = true
                 }, label: {
-                    Image(systemName: "plus.circle")
+                    Text("New")
                 })
             })
             .sheet(isPresented: $showCreateChallengeSheet, content: {

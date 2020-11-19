@@ -12,7 +12,6 @@ struct ChallengeView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @Namespace var namespace
     
-    @State private var showCreateActionSheet = false
     @State private var createActionExpanded = false
     
     @ObservedObject var challenge: Challenge
@@ -30,20 +29,12 @@ struct ChallengeView: View {
             VStack {
                 Spacer()
                 Text("Current value")
-                Text(String(format: "%.0f", totalCount))
+                Text(totalCount.formatTwoDigitsMax())
                     .font(.largeTitle)
                 Spacer()
                 
             }
             .navigationTitle(challenge.unwrappedName)
-            .navigationBarItems(trailing: Button(action: {
-                showCreateActionSheet = true
-            }, label: {
-                Image(systemName: "plus.circle")
-            }))
-            .sheet(isPresented: $showCreateActionSheet, content: {
-                CreateActionForm(challenge: challenge) {}
-            })
             
             VStack {
                 Spacer()

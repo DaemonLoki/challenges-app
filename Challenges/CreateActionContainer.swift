@@ -25,17 +25,6 @@ struct CreateActionContainer: View {
                     CreateActionForm(challenge: challenge) {
                         toggle()
                     }
-                    .gesture(
-                        DragGesture().onChanged { value in
-                            self.currentScale = value.translation.height
-                        }
-                        .onEnded { value in
-                            if value.translation.height > 100 {
-                                toggle()
-                            }
-                        })
-                    
-                    .scaleEffect(1 - (currentScale / 1000))
                 } else {
                     Image(systemName: "plus")
                         .foregroundColor(.white)
@@ -47,6 +36,20 @@ struct CreateActionContainer: View {
         }
         .background(expanded ? nil : LinearGradient.logoGradient)
         .clipShape(RoundedRectangle(cornerRadius: expanded ? 25.0 : 30.0, style: .continuous))
+        .gesture(
+            DragGesture().onChanged { value in
+                self.currentScale = abs(value.translation.height)
+                print(abs(value.translation.height))
+            }
+            .onEnded { value in
+                if value.translation.height > 100 {
+                    toggle()
+                } else {
+                    currentScale = 0
+                }
+            })
+        .scaleEffect(1 - (currentScale / 1000))
+        .animation(.spring())
     }
 }
 
