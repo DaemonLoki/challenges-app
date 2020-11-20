@@ -75,3 +75,18 @@ extension Challenge {
         return challenge
     }
 }
+
+extension Challenge {
+    
+    func dailyRepetitions(for date: Date) -> Double {
+        return actionsArray.filter { (action: Action) in
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd"
+            
+            return formatter.string(from: action.unwrappedDate) == formatter.string(from: date)
+        }.reduce(0.0) { (previousResult, action) -> Double in
+            previousResult + action.count
+        }
+    }
+    
+}

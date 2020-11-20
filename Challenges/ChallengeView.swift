@@ -13,6 +13,7 @@ struct ChallengeView: View {
     @Namespace var namespace
     
     @State private var createActionExpanded = false
+    @State private var currentDate = Date()
     
     @ObservedObject var challenge: Challenge
     
@@ -27,6 +28,7 @@ struct ChallengeView: View {
     var body: some View {
         ZStack {
             VStack {
+                DailyCountCard(count: challenge.dailyRepetitions(for: currentDate), goal: challenge.regularGoal)
                 Spacer()
                 Text("Current value")
                 Text(totalCount.formatTwoDigitsMax())
