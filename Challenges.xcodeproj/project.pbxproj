@@ -23,6 +23,7 @@
 		ACA1E50F2554AD6300E18CE7 /* CreateActionForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA1E50E2554AD6300E18CE7 /* CreateActionForm.swift */; };
 		ACBA03B32566FB81007AB2B1 /* Double+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBA03B22566FB81007AB2B1 /* Double+Formatter.swift */; };
 		ACBA03B8256730E2007AB2B1 /* DailyCountCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBA03B7256730E2007AB2B1 /* DailyCountCard.swift */; };
+		ACBA03BD2567B30C007AB2B1 /* TotalCountCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBA03BC2567B30C007AB2B1 /* TotalCountCard.swift */; };
 		ACBD3B8B256501B900A2508B /* Challenge+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBD3B89256501B900A2508B /* Challenge+CoreDataClass.swift */; };
 		ACBD3B8C256501B900A2508B /* Challenge+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBD3B8A256501B900A2508B /* Challenge+CoreDataProperties.swift */; };
 		ACBD3B92256501CF00A2508B /* Action+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBD3B90256501CF00A2508B /* Action+CoreDataClass.swift */; };
@@ -69,6 +70,7 @@
 		ACA1E50E2554AD6300E18CE7 /* CreateActionForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateActionForm.swift; sourceTree = "<group>"; };
 		ACBA03B22566FB81007AB2B1 /* Double+Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Formatter.swift"; sourceTree = "<group>"; };
 		ACBA03B7256730E2007AB2B1 /* DailyCountCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyCountCard.swift; sourceTree = "<group>"; };
+		ACBA03BC2567B30C007AB2B1 /* TotalCountCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalCountCard.swift; sourceTree = "<group>"; };
 		ACBD3B89256501B900A2508B /* Challenge+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Challenge+CoreDataClass.swift"; path = "Challenges/Challenge+CoreDataClass.swift"; sourceTree = "<group>"; };
 		ACBD3B8A256501B900A2508B /* Challenge+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Challenge+CoreDataProperties.swift"; path = "Challenges/Challenge+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		ACBD3B90256501CF00A2508B /* Action+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Action+CoreDataClass.swift"; path = "Challenges/Action+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				AC325FF02551EE40000D14B7 /* ChallengesApp.swift */,
 				AC325FF22551EE40000D14B7 /* ContentView.swift */,
 				AC8650EA2553541600CD4766 /* ChallengeView.swift */,
+				ACBA03BC2567B30C007AB2B1 /* TotalCountCard.swift */,
 				ACBA03B7256730E2007AB2B1 /* DailyCountCard.swift */,
 				ACBA03B22566FB81007AB2B1 /* Double+Formatter.swift */,
 				AC0A55F1255C7A5A00F703FE /* CreateActionContainer.swift */,
@@ -314,6 +317,7 @@
 				AC0A55ED255C770200F703FE /* Color+Gradients.swift in Sources */,
 				ACBD3B92256501CF00A2508B /* Action+CoreDataClass.swift in Sources */,
 				AC8650EB2553541600CD4766 /* ChallengeView.swift in Sources */,
+				ACBA03BD2567B30C007AB2B1 /* TotalCountCard.swift in Sources */,
 				AC0A55F2255C7A5A00F703FE /* CreateActionContainer.swift in Sources */,
 				ACBD3B8C256501B900A2508B /* Challenge+CoreDataProperties.swift in Sources */,
 				ACBD3B93256501CF00A2508B /* Action+CoreDataProperties.swift in Sources */,

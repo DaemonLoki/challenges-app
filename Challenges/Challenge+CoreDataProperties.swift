@@ -89,4 +89,12 @@ extension Challenge {
         }
     }
     
+    var totalCount: Double {
+        return actionsArray
+            .map { $0.count }
+            .reduce(0.0, { accumulated, nextValue in
+                accumulated + nextValue
+            })
+    }
+    
 }

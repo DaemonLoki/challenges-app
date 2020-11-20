@@ -17,23 +17,16 @@ struct ChallengeView: View {
     
     @ObservedObject var challenge: Challenge
     
-    var totalCount: Double {
-        return challenge.actionsArray
-            .map { $0.count }
-            .reduce(0.0, { accumulated, nextValue in
-                accumulated + nextValue
-            })
-    }
-    
     var body: some View {
         ZStack {
             VStack {
                 DailyCountCard(count: challenge.dailyRepetitions(for: currentDate), goal: challenge.regularGoal)
+                    .padding()
+                
                 Spacer()
-                Text("Current value")
-                Text(totalCount.formatTwoDigitsMax())
-                    .font(.largeTitle)
-                Spacer()
+                
+                TotalCountCard(totalCount: challenge.totalCount, goal: challenge.goal)
+                    .padding()
                 
             }
             .navigationTitle(challenge.unwrappedName)
