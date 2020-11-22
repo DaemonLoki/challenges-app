@@ -24,6 +24,7 @@
 		ACBA03B32566FB81007AB2B1 /* Double+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBA03B22566FB81007AB2B1 /* Double+Formatter.swift */; };
 		ACBA03B8256730E2007AB2B1 /* DailyCountCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBA03B7256730E2007AB2B1 /* DailyCountCard.swift */; };
 		ACBA03BD2567B30C007AB2B1 /* TotalCountCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBA03BC2567B30C007AB2B1 /* TotalCountCard.swift */; };
+		ACBB98A725686D8E00B2F11E /* WeeklyGraphCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBB98A625686D8E00B2F11E /* WeeklyGraphCard.swift */; };
 		ACBD3B8B256501B900A2508B /* Challenge+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBD3B89256501B900A2508B /* Challenge+CoreDataClass.swift */; };
 		ACBD3B8C256501B900A2508B /* Challenge+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBD3B8A256501B900A2508B /* Challenge+CoreDataProperties.swift */; };
 		ACBD3B92256501CF00A2508B /* Action+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBD3B90256501CF00A2508B /* Action+CoreDataClass.swift */; };
@@ -71,6 +72,7 @@
 		ACBA03B22566FB81007AB2B1 /* Double+Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Formatter.swift"; sourceTree = "<group>"; };
 		ACBA03B7256730E2007AB2B1 /* DailyCountCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyCountCard.swift; sourceTree = "<group>"; };
 		ACBA03BC2567B30C007AB2B1 /* TotalCountCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalCountCard.swift; sourceTree = "<group>"; };
+		ACBB98A625686D8E00B2F11E /* WeeklyGraphCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyGraphCard.swift; sourceTree = "<group>"; };
 		ACBD3B89256501B900A2508B /* Challenge+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Challenge+CoreDataClass.swift"; path = "Challenges/Challenge+CoreDataClass.swift"; sourceTree = "<group>"; };
 		ACBD3B8A256501B900A2508B /* Challenge+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Challenge+CoreDataProperties.swift"; path = "Challenges/Challenge+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		ACBD3B90256501CF00A2508B /* Action+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Action+CoreDataClass.swift"; path = "Challenges/Action+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 				AC325FF22551EE40000D14B7 /* ContentView.swift */,
 				AC8650EA2553541600CD4766 /* ChallengeView.swift */,
 				ACBA03BC2567B30C007AB2B1 /* TotalCountCard.swift */,
+				ACBB98A625686D8E00B2F11E /* WeeklyGraphCard.swift */,
 				ACBA03B7256730E2007AB2B1 /* DailyCountCard.swift */,
 				ACBA03B22566FB81007AB2B1 /* Double+Formatter.swift */,
 				AC0A55F1255C7A5A00F703FE /* CreateActionContainer.swift */,
@@ -321,6 +324,7 @@
 				AC0A55F2255C7A5A00F703FE /* CreateActionContainer.swift in Sources */,
 				ACBD3B8C256501B900A2508B /* Challenge+CoreDataProperties.swift in Sources */,
 				ACBD3B93256501CF00A2508B /* Action+CoreDataProperties.swift in Sources */,
+				ACBB98A725686D8E00B2F11E /* WeeklyGraphCard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

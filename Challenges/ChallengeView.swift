@@ -23,10 +23,10 @@ struct ChallengeView: View {
                 DailyCountCard(count: challenge.dailyRepetitions(for: currentDate), goal: challenge.regularGoal)
                     .padding()
                 
-                Spacer()
-                
                 TotalCountCard(totalCount: challenge.totalCount, goal: challenge.goal)
                     .padding()
+                
+                Spacer()
                 
             }
             .navigationTitle(challenge.unwrappedName)

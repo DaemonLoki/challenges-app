@@ -20,6 +20,10 @@ struct TotalCountCard: View {
                 .font(.largeTitle)
             Text(goal.formatTwoDigitsMax())
         }
+        .frame(maxWidth: .infinity)
+        .padding()
+        .background(Color.gradientStart)
+        .clipShape(RoundedRectangle(cornerRadius: 25.0, style: .continuous))
     }
 }
 
