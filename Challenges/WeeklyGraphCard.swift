@@ -10,29 +10,29 @@ import SwiftUI
 struct WeeklyGraphCard: View {
     
     // Outside elements
-    var challenge: Challenge
+    @ObservedObject var challenge: Challenge
     var currentDate: Date
     
     let maxHeight: CGFloat = 120
     let goalHeightFraction: CGFloat = 0.8
     
+    let baseDelay = 0.1
+    let delaySteps = 0.05
+    
     var body: some View {
         HStack(alignment: .bottom) {
-            ForEach(currentDate.daysForWeekBefore, id: \.self) { date in
+            ForEach(currentDate.daysForWeekBefore.indices, id: \.self) { index in
                 VStack {
                     VStack {
                         Spacer()
                         
-                        Color.white
-                            .frame(height: calculateHeightOfBar(for: date))
-                            .clipShape(RoundedRectangle(cornerRadius: 5, style: .continuous))
-                            .opacity(0.7)
+                        GraphBarView(challenge: challenge, date: currentDate.daysForWeekBefore[index], maxHeight: maxHeight, goalHeightFraction: goalHeightFraction, delay: baseDelay + (delaySteps * Double(index)))
                     }
                     .frame(height: maxHeight)
                     
-                    Text("\(challenge.dailyRepetitions(for: date).formatTwoDigitsMax())")
+                    Text("\(challenge.dailyRepetitions(for: currentDate.daysForWeekBefore[index]).formatTwoDigitsMax())")
                     
-                    Text(date.getWeekday)
+                    Text(currentDate.daysForWeekBefore[index].getWeekday)
                         .font(.caption)
                 }
                 .foregroundColor(.white)
