@@ -20,13 +20,17 @@ struct ChallengeView: View {
     var body: some View {
         ZStack {
             VStack {
+                HStack {
                 DailyCountCard(count: challenge.dailyRepetitions(for: currentDate), goal: challenge.regularGoal)
                     .padding()
                 
                 TotalCountCard(totalCount: challenge.totalCount, goal: challenge.goal)
                     .padding()
+                }
                 
                 WeeklyGraphCard(challenge: challenge, currentDate: currentDate)
+                    .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
+                    .padding()
                 
                 Spacer()
                 
