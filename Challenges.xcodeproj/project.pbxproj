@@ -21,6 +21,11 @@
 		AC32603025520ADC000D14B7 /* CreateChallengeForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC32602F25520ADC000D14B7 /* CreateChallengeForm.swift */; };
 		AC8650EB2553541600CD4766 /* ChallengeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8650EA2553541600CD4766 /* ChallengeView.swift */; };
 		ACA1E50F2554AD6300E18CE7 /* CreateActionForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA1E50E2554AD6300E18CE7 /* CreateActionForm.swift */; };
+		ACA73DEA256A7A5C008BD1B7 /* Date+DaysForWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA73DE9256A7A5C008BD1B7 /* Date+DaysForWeek.swift */; };
+		ACA73DEF256A7C46008BD1B7 /* DateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA73DEE256A7C46008BD1B7 /* DateTests.swift */; };
+		ACA73DF6256A7C7B008BD1B7 /* Date+DaysForWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA73DE9256A7A5C008BD1B7 /* Date+DaysForWeek.swift */; };
+		ACA73DFB256AAA21008BD1B7 /* Comparable+Clamping.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA73DFA256AAA21008BD1B7 /* Comparable+Clamping.swift */; };
+		ACA73E00256AAD50008BD1B7 /* Temp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA73DFF256AAD50008BD1B7 /* Temp.swift */; };
 		ACBA03B32566FB81007AB2B1 /* Double+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBA03B22566FB81007AB2B1 /* Double+Formatter.swift */; };
 		ACBA03B8256730E2007AB2B1 /* DailyCountCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBA03B7256730E2007AB2B1 /* DailyCountCard.swift */; };
 		ACBA03BD2567B30C007AB2B1 /* TotalCountCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBA03BC2567B30C007AB2B1 /* TotalCountCard.swift */; };
@@ -69,6 +74,10 @@
 		AC32602F25520ADC000D14B7 /* CreateChallengeForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChallengeForm.swift; sourceTree = "<group>"; };
 		AC8650EA2553541600CD4766 /* ChallengeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeView.swift; sourceTree = "<group>"; };
 		ACA1E50E2554AD6300E18CE7 /* CreateActionForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateActionForm.swift; sourceTree = "<group>"; };
+		ACA73DE9256A7A5C008BD1B7 /* Date+DaysForWeek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+DaysForWeek.swift"; sourceTree = "<group>"; };
+		ACA73DEE256A7C46008BD1B7 /* DateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTests.swift; sourceTree = "<group>"; };
+		ACA73DFA256AAA21008BD1B7 /* Comparable+Clamping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Comparable+Clamping.swift"; sourceTree = "<group>"; };
+		ACA73DFF256AAD50008BD1B7 /* Temp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Temp.swift; sourceTree = "<group>"; };
 		ACBA03B22566FB81007AB2B1 /* Double+Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Formatter.swift"; sourceTree = "<group>"; };
 		ACBA03B7256730E2007AB2B1 /* DailyCountCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyCountCard.swift; sourceTree = "<group>"; };
 		ACBA03BC2567B30C007AB2B1 /* TotalCountCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalCountCard.swift; sourceTree = "<group>"; };
@@ -107,6 +116,7 @@
 		AC325FE42551EE3F000D14B7 = {
 			isa = PBXGroup;
 			children = (
+				ACA73DFF256AAD50008BD1B7 /* Temp.swift */,
 				ACBD3B90256501CF00A2508B /* Action+CoreDataClass.swift */,
 				ACBD3B91256501CF00A2508B /* Action+CoreDataProperties.swift */,
 				ACBD3B89256501B900A2508B /* Challenge+CoreDataClass.swift */,
@@ -136,6 +146,7 @@
 				AC8650EA2553541600CD4766 /* ChallengeView.swift */,
 				ACBA03BC2567B30C007AB2B1 /* TotalCountCard.swift */,
 				ACBB98A625686D8E00B2F11E /* WeeklyGraphCard.swift */,
+				ACA73DFA256AAA21008BD1B7 /* Comparable+Clamping.swift */,
 				ACBA03B7256730E2007AB2B1 /* DailyCountCard.swift */,
 				ACBA03B22566FB81007AB2B1 /* Double+Formatter.swift */,
 				AC0A55F1255C7A5A00F703FE /* CreateActionContainer.swift */,
@@ -147,6 +158,7 @@
 				AC325FFB2551EE40000D14B7 /* Challenges.xcdatamodeld */,
 				AC325FF62551EE40000D14B7 /* Preview Content */,
 				AC0A55E7255C754D00F703FE /* LinearGradient.swift */,
+				ACA73DE9256A7A5C008BD1B7 /* Date+DaysForWeek.swift */,
 				AC0A55EC255C770200F703FE /* Color+Gradients.swift */,
 			);
 			path = Challenges;
@@ -165,6 +177,7 @@
 			children = (
 				AC3260072551EE41000D14B7 /* ChallengesTests.swift */,
 				AC3260092551EE41000D14B7 /* Info.plist */,
+				ACA73DEE256A7C46008BD1B7 /* DateTests.swift */,
 			);
 			path = ChallengesTests;
 			sourceTree = "<group>";
@@ -309,6 +322,7 @@
 			files = (
 				AC325FFA2551EE40000D14B7 /* Persistence.swift in Sources */,
 				AC325FFD2551EE40000D14B7 /* Challenges.xcdatamodeld in Sources */,
+				ACA73DEA256A7A5C008BD1B7 /* Date+DaysForWeek.swift in Sources */,
 				ACBA03B32566FB81007AB2B1 /* Double+Formatter.swift in Sources */,
 				AC0A55E8255C754D00F703FE /* LinearGradient.swift in Sources */,
 				AC325FF32551EE40000D14B7 /* ContentView.swift in Sources */,
@@ -320,8 +334,10 @@
 				AC0A55ED255C770200F703FE /* Color+Gradients.swift in Sources */,
 				ACBD3B92256501CF00A2508B /* Action+CoreDataClass.swift in Sources */,
 				AC8650EB2553541600CD4766 /* ChallengeView.swift in Sources */,
+				ACA73E00256AAD50008BD1B7 /* Temp.swift in Sources */,
 				ACBA03BD2567B30C007AB2B1 /* TotalCountCard.swift in Sources */,
 				AC0A55F2255C7A5A00F703FE /* CreateActionContainer.swift in Sources */,
+				ACA73DFB256AAA21008BD1B7 /* Comparable+Clamping.swift in Sources */,
 				ACBD3B8C256501B900A2508B /* Challenge+CoreDataProperties.swift in Sources */,
 				ACBD3B93256501CF00A2508B /* Action+CoreDataProperties.swift in Sources */,
 				ACBB98A725686D8E00B2F11E /* WeeklyGraphCard.swift in Sources */,
@@ -333,6 +349,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC3260082551EE41000D14B7 /* ChallengesTests.swift in Sources */,
+				ACA73DEF256A7C46008BD1B7 /* DateTests.swift in Sources */,
+				ACA73DF6256A7C7B008BD1B7 /* Date+DaysForWeek.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

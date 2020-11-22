@@ -26,6 +26,8 @@ struct ChallengeView: View {
                 TotalCountCard(totalCount: challenge.totalCount, goal: challenge.goal)
                     .padding()
                 
+                WeeklyGraphCard(challenge: challenge, currentDate: currentDate)
+                
                 Spacer()
                 
             }
