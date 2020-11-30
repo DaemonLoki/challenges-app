@@ -9,55 +9,84 @@ import SwiftUI
 
 struct CreateActionContainer: View {
     
-    var challenge: Challenge
-    @Binding var expanded: Bool
-    var toggle: () -> Void
+    @ObservedObject var challenge: Challenge
+    @State private var createActionExpanded = false
+    
+    @Namespace var namespace
     
     @State private var currentScale: CGFloat = 0
     
     var body: some View {
-        HStack {
-            Spacer()
-            VStack {
-                Spacer()
-                
-                if expanded {
-                    CreateActionForm(challenge: challenge) {
-                        toggle()
+        VStack {
+            // Create Action Card
+            if createActionExpanded {
+                CreateActionForm(challenge: challenge) {
+                    withAnimation {
+                        createActionExpanded.toggle()
                     }
-                } else {
-                    Image(systemName: "plus")
-                        .foregroundColor(.white)
                 }
-                
+                .clipShape(RoundedRectangle(cornerRadius: 25, style: .continuous))
+                .matchedGeometryEffect(id: "createAction", in: namespace)
+                .frame(height: 550)
+                .gesture(
+                    createActionExpanded ?
+                    DragGesture().onChanged { value in
+                        if value.translation.height > 100 {
+                            withAnimation {
+                                createActionExpanded = false
+                            }
+                        } else {
+                            self.currentScale = abs(value.translation.height)
+                            print(abs(value.translation.height))
+                        }
+                    }
+                    .onEnded { value in
+                        if value.translation.height > 100 {
+                            withAnimation {
+                                createActionExpanded = false
+                            }
+                        } else {
+                            currentScale = 0
+                        }
+                    }
+                    : nil
+                )
+                .scaleEffect(1 - (currentScale / 1000))
+                .animation(.spring())
+                .transition(.opacity)
+            }
+            
+            // Button
+            if !createActionExpanded {
                 Spacer()
-            }
-            Spacer()
-        }
-        .background(expanded ? nil : LinearGradient.logoGradient)
-        .clipShape(RoundedRectangle(cornerRadius: expanded ? 25.0 : 30.0, style: .continuous))
-        .gesture(
-            DragGesture().onChanged { value in
-                self.currentScale = abs(value.translation.height)
-                print(abs(value.translation.height))
-            }
-            .onEnded { value in
-                if value.translation.height > 100 {
-                    toggle()
-                } else {
-                    currentScale = 0
+                
+                HStack {
+                    Spacer()
+                    
+                    Button {
+                        withAnimation {
+                            createActionExpanded = true
+                        }
+                    } label: {
+                        Image(systemName: "plus")
+                            .foregroundColor(.white)
+                            .padding()
+                            .background(LinearGradient.logoGradient)
+                    }
+                    .clipShape(
+                        RoundedRectangle(cornerRadius: 30, style: .continuous)
+                    )
+                    .matchedGeometryEffect(id: "createAction", in: namespace, isSource: !createActionExpanded)
+                    .frame(width: 60, height: 60)
+                    .padding()
                 }
-            })
-        .scaleEffect(1 - (currentScale / 1000))
-        .animation(.spring())
+            }
+        }
     }
 }
 
 struct CreateActionContainer_Previews: PreviewProvider {
     static var previews: some View {
-        Group {
-            CreateActionContainer(challenge: .preview, expanded: .constant(false)) {}
-            CreateActionContainer(challenge: .preview, expanded: .constant(true)) {}
-        }
+        CreateActionContainer(challenge: .preview)
     }
 }

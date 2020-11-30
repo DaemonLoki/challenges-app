@@ -10,9 +10,7 @@ import SwiftUI
 struct ChallengeView: View {
     
     @Environment(\.managedObjectContext) private var viewContext
-    @Namespace var namespace
     
-    @State private var createActionExpanded = false
     @State private var currentDate = Date()
     
     @ObservedObject var challenge: Challenge
@@ -37,44 +35,7 @@ struct ChallengeView: View {
             }
             .navigationTitle(challenge.unwrappedName)
             
-            VStack {
-                Spacer()
-                
-                HStack {
-                    Spacer()
-                    
-                    CreateActionContainer(challenge: challenge, expanded: $createActionExpanded) {
-                        withAnimation(.spring()) {
-                            createActionExpanded.toggle()
-                        }
-                    }
-                    .matchedGeometryEffect(id: "createAction", in: namespace, isSource: !createActionExpanded)
-                    .frame(width: 60, height: 60)
-                    .onTapGesture {
-                        withAnimation(.spring()) {
-                            createActionExpanded.toggle()
-                        }
-                    }
-                    
-                }
-                .padding()
-            }
-            
-            if createActionExpanded {
-                VStack {
-                    Spacer()
-                    
-                    CreateActionContainer(challenge: challenge, expanded: $createActionExpanded) {
-                        withAnimation(.spring()) {
-                            createActionExpanded.toggle()
-                        }
-                    }
-                    .matchedGeometryEffect(id: "createAction", in: namespace)
-                    .frame(height: 550)
-                    .clipShape(RoundedRectangle(cornerRadius: 25.0, style: .continuous))
-                }
-                .transition(.opacity)
-            }
+            CreateActionContainer(challenge: challenge)
         }
     }
 }
