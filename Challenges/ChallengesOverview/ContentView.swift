@@ -21,17 +21,21 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-            List {
-                ForEach(challenges) { challenge in
-                    NavigationLink(
-                        destination: ChallengeView(challenge: challenge),
-                        label: {
-                            Text("\(challenge.unwrappedName)")
-                        }
-                    )
+            ScrollView {
+                LazyVStack(spacing: 10) {
+                    
+                    ForEach(challenges) { (challenge: Challenge) in
+                            NavigationLink(
+                                destination: ChallengeView(challenge: challenge)) {
+                                ChallengeCard(challenge: challenge)
+                            }
+
+                        .padding(.horizontal)
+                    }
+                    .onDelete(perform: removeChallenges)
                 }
-                .onDelete(perform: removeChallenges)
             }
+            .listStyle(PlainListStyle())
             .navigationTitle("Challenges")
             .navigationBarItems(trailing: HStack {
                 Button(action: {

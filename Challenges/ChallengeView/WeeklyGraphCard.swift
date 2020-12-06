@@ -48,7 +48,6 @@ struct WeeklyGraphCard: View {
         let percentage = dailyRepetitions / regularGoal
         let goalHeight = maxHeight * goalHeightFraction
         let result = goalHeight * CGFloat(percentage)
-        print("result: \(result), clamped: \(result.clamped(to: 0...maxHeight))")
         return result.clamped(to: 0...maxHeight)
     }
 }
