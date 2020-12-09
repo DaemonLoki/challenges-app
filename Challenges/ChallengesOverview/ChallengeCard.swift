@@ -9,11 +9,13 @@ import SwiftUI
 
 struct ChallengeCard: View {
     
+    @Environment(\.colorScheme) var colorScheme
+    
     var challenge: Challenge
     
     var body: some View {
         ZStack {
-            VisualEffectBlur(blurStyle: .systemThinMaterialLight, vibrancyStyle: .separator) {
+            VisualEffectBlur(blurStyle: colorScheme == .dark ? .systemThinMaterialDark : .systemThinMaterialLight, vibrancyStyle: .separator) {
                 EmptyView()
             }
             
@@ -21,6 +23,7 @@ struct ChallengeCard: View {
                 VStack(alignment: .leading, spacing: 10) {
                     Text(challenge.unwrappedName)
                         .font(.headline)
+                        .foregroundColor(.primary)
                     
                     Text("TODAY - \(Int(challenge.dailyRepetitions(for: Date()))) / \(Int(challenge.regularGoal))")
                         .font(.subheadline)

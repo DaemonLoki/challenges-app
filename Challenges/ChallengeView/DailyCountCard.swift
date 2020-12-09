@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct DailyCountCard: View {
+
+    @Environment(\.colorScheme) var colorScheme
     
     var count: Double
     var goal: Double?
@@ -28,16 +30,13 @@ struct DailyCountCard: View {
     
     var body: some View {
         ZStack {
-            
-            if goalReached {
-                Circle()
-                    .fill(LinearGradient.logoGradient)
-                    .frame(width: 120, height: 120)
-                    .shadow(radius: goalReached ? 10 : 0)
+            VisualEffectBlur(blurStyle: colorScheme == .dark ? .systemThinMaterialDark : .systemThinMaterialLight, vibrancyStyle: .separator) {
+                EmptyView()
             }
             
             VStack {
-                Text("TODAY")
+                Text("TOTAL")
+                    .font(.footnote)
                 Text(count.formatTwoDigitsMax())
                     .font(.largeTitle)
                 
@@ -45,8 +44,6 @@ struct DailyCountCard: View {
                     Text(unwrappedGoal.formatTwoDigitsMax())
                 }
             }
-            .frame(maxWidth: .infinity)
-            .padding()
             
             if !goalReached {
                 Arc(startAngle: .degrees(0), endAngle: .degrees(circlePercentage))
@@ -55,9 +52,9 @@ struct DailyCountCard: View {
                     .frame(width: 120, height: 120)
             }
         }
-        .rotation3DEffect(
-            .degrees(0),
-            axis: (x: 1.0, y: 1.0, z: -1.0))
+        .frame(width: 200, height: 200)
+        .clipShape(RoundedRectangle(cornerRadius: 25.0, style: .continuous))
+        .shadow(radius: goalReached ? 20 : 2)
     }
 }
 
