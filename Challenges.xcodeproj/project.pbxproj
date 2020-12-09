@@ -36,6 +36,8 @@
 		ACBD3B93256501CF00A2508B /* Action+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBD3B91256501CF00A2508B /* Action+CoreDataProperties.swift */; };
 		ACCF191E257C2FC600B6B07D /* ChallengeCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCF191D257C2FC600B6B07D /* ChallengeCard.swift */; };
 		ACCF1923257C340700B6B07D /* VisualEffectBlur.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCF1922257C340700B6B07D /* VisualEffectBlur.swift */; };
+		ACDB69652581824B0011658F /* ProgressArc.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDB69642581824B0011658F /* ProgressArc.swift */; };
+		ACDB696A25818A550011658F /* ChallengesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDB696925818A550011658F /* ChallengesViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +92,8 @@
 		ACBD3B91256501CF00A2508B /* Action+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Action+CoreDataProperties.swift"; path = "Challenges/Action+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		ACCF191D257C2FC600B6B07D /* ChallengeCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeCard.swift; sourceTree = "<group>"; };
 		ACCF1922257C340700B6B07D /* VisualEffectBlur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualEffectBlur.swift; sourceTree = "<group>"; };
+		ACDB69642581824B0011658F /* ProgressArc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressArc.swift; sourceTree = "<group>"; };
+		ACDB696925818A550011658F /* ChallengesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengesViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +198,7 @@
 				ACA73E07256AB4D4008BD1B7 /* GraphBarView.swift */,
 				AC0A55F1255C7A5A00F703FE /* CreateActionContainer.swift */,
 				ACA1E50E2554AD6300E18CE7 /* CreateActionForm.swift */,
+				ACDB69642581824B0011658F /* ProgressArc.swift */,
 			);
 			path = ChallengeView;
 			sourceTree = "<group>";
@@ -217,6 +222,7 @@
 				AC32602F25520ADC000D14B7 /* CreateChallengeForm.swift */,
 				AC325FF22551EE40000D14B7 /* ContentView.swift */,
 				ACCF191D257C2FC600B6B07D /* ChallengeCard.swift */,
+				ACDB696925818A550011658F /* ChallengesViewModel.swift */,
 			);
 			path = ChallengesOverview;
 			sourceTree = "<group>";
@@ -351,6 +357,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC325FFA2551EE40000D14B7 /* Persistence.swift in Sources */,
+				ACDB696A25818A550011658F /* ChallengesViewModel.swift in Sources */,
 				AC325FFD2551EE40000D14B7 /* Challenges.xcdatamodeld in Sources */,
 				ACA73DEA256A7A5C008BD1B7 /* Date+DaysForWeek.swift in Sources */,
 				ACCF191E257C2FC600B6B07D /* ChallengeCard.swift in Sources */,
@@ -365,6 +372,7 @@
 				ACBD3B8B256501B900A2508B /* Challenge+CoreDataClass.swift in Sources */,
 				AC0A55ED255C770200F703FE /* Color+Gradients.swift in Sources */,
 				ACBD3B92256501CF00A2508B /* Action+CoreDataClass.swift in Sources */,
+				ACDB69652581824B0011658F /* ProgressArc.swift in Sources */,
 				AC8650EB2553541600CD4766 /* ChallengeView.swift in Sources */,
 				ACBA03BD2567B30C007AB2B1 /* TotalCountCard.swift in Sources */,
 				AC0A55F2255C7A5A00F703FE /* CreateActionContainer.swift in Sources */,

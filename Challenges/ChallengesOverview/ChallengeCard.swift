@@ -11,7 +11,7 @@ struct ChallengeCard: View {
     
     @Environment(\.colorScheme) var colorScheme
     
-    var challenge: Challenge
+    @ObservedObject var challenge: Challenge
     
     var body: some View {
         ZStack {
