@@ -6,16 +6,25 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct DailyCountCard: View {
 
     @Environment(\.colorScheme) var colorScheme
     
-    var count: Double
+    var count: Double {
+        didSet {
+            print("Updated count to \(count)")
+            circleDegree = circlePercentage
+        }
+    }
     var goal: Double?
+    
+    @State private var circleDegree: Double = 0
     
     var circlePercentage: Double {
         guard let unwrappedGoal = goal else { return 0.0 }
+        print("Count: \(count), value: \(count * 360 / unwrappedGoal)")
         return count * 360 / unwrappedGoal
     }
     
@@ -35,7 +44,7 @@ struct DailyCountCard: View {
             }
             
             VStack {
-                Text("TOTAL")
+                Text("DAILY")
                     .font(.footnote)
                 Text(count.formatTwoDigitsMax())
                     .font(.largeTitle)
@@ -46,15 +55,24 @@ struct DailyCountCard: View {
             }
             
             if !goalReached {
-                Arc(startAngle: .degrees(0), endAngle: .degrees(circlePercentage))
-                    .stroke(LinearGradient.logoGradient, style: StrokeStyle(lineWidth: 5, lineCap: .round, lineJoin: .round))
-                    .animation(.spring())
+                ProgressArc(currentValue: count, goalValue: goal ?? 1.0)
                     .frame(width: 120, height: 120)
             }
         }
         .frame(width: 200, height: 200)
         .clipShape(RoundedRectangle(cornerRadius: 25.0, style: .continuous))
         .shadow(radius: goalReached ? 20 : 2)
+        .onAppear {
+            circleDegree = circlePercentage
+        }
+        .onReceive(NotificationCenter.default.publisher(for: NSManagedObjectContext.didChangeObjectsNotification), perform: { _ in
+            print("Current count: \(count.formatTwoDigitsMax())")
+            circleDegree = circlePercentage
+        })
+        .onReceive(NotificationCenter.default.publisher(for: NSManagedObjectContext.didSaveObjectsNotification), perform: { _ in
+            print("Current count: \(count.formatTwoDigitsMax())")
+            circleDegree = circlePercentage
+        })
     }
 }
 

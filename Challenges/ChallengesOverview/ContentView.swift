@@ -12,10 +12,7 @@ struct ContentView: View {
     
     @Environment(\.managedObjectContext) var managedObjectContext
     
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Challenge.start, ascending: true)],
-        animation: .default)
-    private var challenges: FetchedResults<Challenge>
+    @ObservedObject var viewModel: ChallengesViewModel
     
     @State private var showCreateChallengeSheet = false
     
@@ -24,7 +21,7 @@ struct ContentView: View {
             ScrollView {
                 LazyVStack(spacing: 10) {
                     
-                    ForEach(challenges) { (challenge: Challenge) in
+                    ForEach(viewModel.challenges) { (challenge: Challenge) in
                             NavigationLink(
                                 destination: ChallengeView(challenge: challenge)) {
                                 ChallengeCard(challenge: challenge)
@@ -51,23 +48,12 @@ struct ContentView: View {
     }
     
     func removeChallenges(at offsets: IndexSet) {
-        for index in offsets {
-            let challenge = challenges[index]
-            managedObjectContext.delete(challenge)
-        }
-        
-        if (managedObjectContext.hasChanges) {
-            do {
-                try managedObjectContext.save()
-            } catch  {
-                print("Error occurred: \(error)")
-            }
-        }
+        viewModel.removeChallenges(at: offsets)
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
-    }
-}
+//struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+//    }
+//}
