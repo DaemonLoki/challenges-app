@@ -218,10 +218,8 @@
 		ACCF1919257C2EAE00B6B07D /* ChallengesOverview */ = {
 			isa = PBXGroup;
 			children = (
-				AC32602F25520ADC000D14B7 /* CreateChallengeForm.swift */,
-				AC325FF22551EE40000D14B7 /* ContentView.swift */,
-				ACCF191D257C2FC600B6B07D /* ChallengeCard.swift */,
-				ACDB696925818A550011658F /* ChallengesViewModel.swift */,
+				ACF118F12582476900AD1D80 /* View */,
+				ACF118F02582476300AD1D80 /* ViewModel */,
 			);
 			path = ChallengesOverview;
 			sourceTree = "<group>";
@@ -255,6 +253,24 @@
 				ACF118EB258246A700AD1D80 /* Challenge+FetchRequests.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		ACF118F02582476300AD1D80 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				ACDB696925818A550011658F /* ChallengesViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		ACF118F12582476900AD1D80 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AC32602F25520ADC000D14B7 /* CreateChallengeForm.swift */,
+				AC325FF22551EE40000D14B7 /* ContentView.swift */,
+				ACCF191D257C2FC600B6B07D /* ChallengeCard.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

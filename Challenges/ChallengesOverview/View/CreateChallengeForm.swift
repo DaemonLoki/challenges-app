@@ -12,6 +12,8 @@ struct CreateChallengeForm: View {
     @Environment(\.managedObjectContext) private var viewContext
     @Environment (\.presentationMode) var presentationMode
     
+    @ObservedObject var viewModel: ChallengesViewModel
+    
     // Basic properties
     @State private var name: String = ""
     @State private var goal: String = ""
@@ -63,7 +65,7 @@ struct CreateChallengeForm: View {
                 Section {
                     Button(action: {
                         do {
-                            try tryCreateChallenge()
+                            try viewModel.tryCreateChallenge(named: name, with: Double(goal) ?? 0, regularGoal: includeDailyGoal ? Double(dailyGoal) : nil, endDate: includeEndDate ? endDate : nil)
                             presentationMode.wrappedValue.dismiss()
                         } catch {
                             print(error.localizedDescription)
@@ -76,38 +78,12 @@ struct CreateChallengeForm: View {
             .navigationTitle("New Challenge")
         }
     }
-    
-    func tryCreateChallenge() throws {
-        let challenge = Challenge(context: viewContext)
-        
-        // set basic data
-        challenge.id = UUID()
-        challenge.name = name
-        challenge.start = Date()
-        challenge.goal = Double(goal) ?? 0
-        
-        // set additional data
-        if includeEndDate {
-            challenge.end = endDate
-        }
-        
-        if includeDailyGoal {
-            challenge.regularGoal = Double(dailyGoal) ?? 0
-        }
-        
-        // set data that is not supported yet
-        challenge.frequency = "daily"
-        challenge.isActive = true
-        challenge.sendReminders = false
-        
-        try viewContext.save()
-    }
 }
 
 struct CreateChallengeForm_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            CreateChallengeForm()
+            CreateChallengeForm(viewModel: ChallengesViewModel(managedObjectContext: PersistenceController.preview.container.viewContext))
                 .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
         }
     }

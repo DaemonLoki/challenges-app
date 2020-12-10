@@ -42,7 +42,7 @@ struct ContentView: View {
                 })
             })
             .sheet(isPresented: $showCreateChallengeSheet, content: {
-                CreateChallengeForm()
+                CreateChallengeForm(viewModel: viewModel)
             })
         }
     }

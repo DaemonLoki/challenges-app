@@ -45,6 +45,32 @@ class ChallengesViewModel: NSObject, ObservableObject {
             }
         }
     }
+    
+    func tryCreateChallenge(named name: String, with goal: Double, regularGoal: Double?, endDate: Date?) throws {
+        let challenge = Challenge(context: managedObjectContext)
+        
+        // set basic data
+        challenge.id = UUID()
+        challenge.name = name
+        challenge.start = Date()
+        challenge.goal = goal
+        
+        // set additional data
+        if let endDate = endDate {
+            challenge.end = endDate
+        }
+        
+        if let regularGoal = regularGoal {
+            challenge.regularGoal = regularGoal
+        }
+        
+        // set data that is not supported yet
+        challenge.frequency = "daily"
+        challenge.isActive = true
+        challenge.sendReminders = false
+        
+        try managedObjectContext.save()
+    }
 }
 
 extension ChallengesViewModel: NSFetchedResultsControllerDelegate {
