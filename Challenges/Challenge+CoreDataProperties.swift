@@ -102,7 +102,6 @@ extension Challenge {
         let percentage = dailyRepetitions(for: date) / regularGoal
         let goalHeight = maxHeight * 0.8
         let result = goalHeight * CGFloat(percentage)
-        print("Calculating heightOfBar: \(result.clamped(to: 0...maxHeight))")
         return result.clamped(to: 0...maxHeight)
     }
     

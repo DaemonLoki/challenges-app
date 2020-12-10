@@ -193,15 +193,8 @@
 		ACCF1917257C2E5C00B6B07D /* ChallengeView */ = {
 			isa = PBXGroup;
 			children = (
-				AC8650EA2553541600CD4766 /* ChallengeView.swift */,
-				ACBA03BC2567B30C007AB2B1 /* TotalCountCard.swift */,
-				ACBA03B7256730E2007AB2B1 /* DailyCountCard.swift */,
-				ACBB98A625686D8E00B2F11E /* WeeklyGraphCard.swift */,
-				ACA73E07256AB4D4008BD1B7 /* GraphBarView.swift */,
-				AC0A55F1255C7A5A00F703FE /* CreateActionContainer.swift */,
-				ACA1E50E2554AD6300E18CE7 /* CreateActionForm.swift */,
-				ACDB69642581824B0011658F /* ProgressArc.swift */,
-				ACDB697A25823A480011658F /* ChallengeDetailViewModel.swift */,
+				ACDB697F2582422D0011658F /* View */,
+				ACDB6980258242360011658F /* ViewModel */,
 			);
 			path = ChallengeView;
 			sourceTree = "<group>";
@@ -228,6 +221,29 @@
 				ACDB696925818A550011658F /* ChallengesViewModel.swift */,
 			);
 			path = ChallengesOverview;
+			sourceTree = "<group>";
+		};
+		ACDB697F2582422D0011658F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AC8650EA2553541600CD4766 /* ChallengeView.swift */,
+				ACBA03BC2567B30C007AB2B1 /* TotalCountCard.swift */,
+				ACBA03B7256730E2007AB2B1 /* DailyCountCard.swift */,
+				ACBB98A625686D8E00B2F11E /* WeeklyGraphCard.swift */,
+				ACA73E07256AB4D4008BD1B7 /* GraphBarView.swift */,
+				AC0A55F1255C7A5A00F703FE /* CreateActionContainer.swift */,
+				ACA1E50E2554AD6300E18CE7 /* CreateActionForm.swift */,
+				ACDB69642581824B0011658F /* ProgressArc.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		ACDB6980258242360011658F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				ACDB697A25823A480011658F /* ChallengeDetailViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

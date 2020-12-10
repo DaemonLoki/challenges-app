@@ -15,6 +15,14 @@ class ChallengeDetailViewModel: NSObject, ObservableObject {
         challenge.unwrappedName
     }
     
+    var challengeTotalCount: Double {
+        challenge.totalCount
+    }
+    
+    var challengeGoal: Double {
+        challenge.goal
+    }
+    
     private let challengesController: NSFetchedResultsController<Challenge>
     private let managedObjectContext: NSManagedObjectContext
     
