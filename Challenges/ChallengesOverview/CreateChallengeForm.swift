@@ -62,9 +62,8 @@ struct CreateChallengeForm: View {
                 
                 Section {
                     Button(action: {
-                        let challenge = tryCreateChallenge()
                         do {
-                            try viewContext.save()
+                            try tryCreateChallenge()
                             presentationMode.wrappedValue.dismiss()
                         } catch {
                             print(error.localizedDescription)
@@ -78,7 +77,7 @@ struct CreateChallengeForm: View {
         }
     }
     
-    func tryCreateChallenge() -> Challenge {
+    func tryCreateChallenge() throws {
         let challenge = Challenge(context: viewContext)
         
         // set basic data
@@ -101,7 +100,7 @@ struct CreateChallengeForm: View {
         challenge.isActive = true
         challenge.sendReminders = false
         
-        return challenge
+        try viewContext.save()
     }
 }
 
