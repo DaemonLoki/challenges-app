@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreData
+import CoreGraphics
 
 
 extension Challenge {
@@ -19,7 +20,7 @@ extension Challenge {
     @NSManaged public var end: Date?
     @NSManaged public var frequency: String?
     @NSManaged public var goal: Double
-    @NSManaged public var id: UUID?
+    @NSManaged public var id: UUID
     @NSManaged public var isActive: Bool
     @NSManaged public var name: String?
     @NSManaged public var regularGoal: Double
@@ -95,6 +96,14 @@ extension Challenge {
             .reduce(0.0, { accumulated, nextValue in
                 accumulated + nextValue
             })
+    }
+    
+    func heightOfBar(for date: Date, with maxHeight: CGFloat) -> CGFloat {
+        let percentage = dailyRepetitions(for: date) / regularGoal
+        let goalHeight = maxHeight * 0.8
+        let result = goalHeight * CGFloat(percentage)
+        print("Calculating heightOfBar: \(result.clamped(to: 0...maxHeight))")
+        return result.clamped(to: 0...maxHeight)
     }
     
 }

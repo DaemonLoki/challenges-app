@@ -38,6 +38,7 @@
 		ACCF1923257C340700B6B07D /* VisualEffectBlur.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCF1922257C340700B6B07D /* VisualEffectBlur.swift */; };
 		ACDB69652581824B0011658F /* ProgressArc.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDB69642581824B0011658F /* ProgressArc.swift */; };
 		ACDB696A25818A550011658F /* ChallengesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDB696925818A550011658F /* ChallengesViewModel.swift */; };
+		ACDB697B25823A480011658F /* ChallengeDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDB697A25823A480011658F /* ChallengeDetailViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +95,7 @@
 		ACCF1922257C340700B6B07D /* VisualEffectBlur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualEffectBlur.swift; sourceTree = "<group>"; };
 		ACDB69642581824B0011658F /* ProgressArc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressArc.swift; sourceTree = "<group>"; };
 		ACDB696925818A550011658F /* ChallengesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengesViewModel.swift; sourceTree = "<group>"; };
+		ACDB697A25823A480011658F /* ChallengeDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeDetailViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +201,7 @@
 				AC0A55F1255C7A5A00F703FE /* CreateActionContainer.swift */,
 				ACA1E50E2554AD6300E18CE7 /* CreateActionForm.swift */,
 				ACDB69642581824B0011658F /* ProgressArc.swift */,
+				ACDB697A25823A480011658F /* ChallengeDetailViewModel.swift */,
 			);
 			path = ChallengeView;
 			sourceTree = "<group>";
@@ -379,6 +382,7 @@
 				ACA73DFB256AAA21008BD1B7 /* Comparable+Clamping.swift in Sources */,
 				ACBD3B8C256501B900A2508B /* Challenge+CoreDataProperties.swift in Sources */,
 				ACBD3B93256501CF00A2508B /* Action+CoreDataProperties.swift in Sources */,
+				ACDB697B25823A480011658F /* ChallengeDetailViewModel.swift in Sources */,
 				ACA73E08256AB4D4008BD1B7 /* GraphBarView.swift in Sources */,
 				ACBB98A725686D8E00B2F11E /* WeeklyGraphCard.swift in Sources */,
 			);

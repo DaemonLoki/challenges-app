@@ -63,4 +63,12 @@ extension Challenge {
         
         return request
     }
+    
+    static func challengeDetailRequest(for id: UUID) -> NSFetchRequest<Challenge> {
+        let request: NSFetchRequest<Challenge> = Challenge.fetchRequest()
+        request.predicate = NSPredicate(format: "id == %@", id.uuidString)
+        request.sortDescriptors = [NSSortDescriptor(keyPath: \Challenge.start, ascending: true)]
+        
+        return request
+    }
 }

@@ -23,13 +23,13 @@ struct ContentView: View {
                     
                     ForEach(viewModel.challenges) { (challenge: Challenge) in
                             NavigationLink(
-                                destination: ChallengeView(challenge: challenge)) {
+                                destination: ChallengeView(viewModel: ChallengeDetailViewModel(id: challenge.id, managedObjectContext: managedObjectContext))) {
                                 ChallengeCard(challenge: challenge)
                             }
 
                         .padding(.horizontal)
                     }
-                    .onDelete(perform: removeChallenges)
+                    .onDelete(perform: viewModel.removeChallenges)
                 }
             }
             .listStyle(PlainListStyle())
@@ -45,10 +45,6 @@ struct ContentView: View {
                 CreateChallengeForm()
             })
         }
-    }
-    
-    func removeChallenges(at offsets: IndexSet) {
-        viewModel.removeChallenges(at: offsets)
     }
 }
 
