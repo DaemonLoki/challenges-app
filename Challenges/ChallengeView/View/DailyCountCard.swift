@@ -12,19 +12,13 @@ struct DailyCountCard: View {
 
     @Environment(\.colorScheme) var colorScheme
     
-    var count: Double {
-        didSet {
-            print("Updated count to \(count)")
-            circleDegree = circlePercentage
-        }
-    }
+    var count: Double
     var goal: Double?
     
     @State private var circleDegree: Double = 0
     
     var circlePercentage: Double {
         guard let unwrappedGoal = goal else { return 0.0 }
-        print("Count: \(count), value: \(count * 360 / unwrappedGoal)")
         return count * 360 / unwrappedGoal
     }
     
@@ -32,11 +26,7 @@ struct DailyCountCard: View {
         guard let unwrappedGoal = goal else { return false }
         return count >= unwrappedGoal
     }
-    
-    var shadowAmount: Double {
-        goalReached ? 20 : 0
-    }
-    
+        
     var body: some View {
         ZStack {
             VisualEffectBlur(blurStyle: colorScheme == .dark ? .systemThinMaterialDark : .systemThinMaterialLight, vibrancyStyle: .separator) {
@@ -61,18 +51,10 @@ struct DailyCountCard: View {
         }
         .frame(width: 200, height: 200)
         .clipShape(RoundedRectangle(cornerRadius: 25.0, style: .continuous))
-        .shadow(radius: goalReached ? 20 : 2)
+        .shadow(radius: goalReached ? 10 : 2)
         .onAppear {
             circleDegree = circlePercentage
         }
-        .onReceive(NotificationCenter.default.publisher(for: NSManagedObjectContext.didChangeObjectsNotification), perform: { _ in
-            print("Current count: \(count.formatTwoDigitsMax())")
-            circleDegree = circlePercentage
-        })
-        .onReceive(NotificationCenter.default.publisher(for: NSManagedObjectContext.didSaveObjectsNotification), perform: { _ in
-            print("Current count: \(count.formatTwoDigitsMax())")
-            circleDegree = circlePercentage
-        })
     }
 }
 

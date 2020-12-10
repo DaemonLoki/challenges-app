@@ -26,7 +26,7 @@ struct WeeklyGraphCard: View {
                     VStack {
                         Spacer()
                         
-                        GraphBarView(challenge: challenge, date: currentDate.daysForWeekBefore[index], maxHeight: maxHeight, goalHeightFraction: goalHeightFraction, delay: baseDelay + (delaySteps * Double(index)))
+                        GraphBarView(challenge: challenge, date: currentDate.daysForWeekBefore[index], maxHeight: maxHeight)
                     }
                     .frame(height: maxHeight)
                     
@@ -40,15 +40,6 @@ struct WeeklyGraphCard: View {
         }
         .padding()
         .background(LinearGradient.logoGradient)
-    }
-    
-    func calculateHeightOfBar(for date: Date) -> CGFloat {
-        let dailyRepetitions = challenge.dailyRepetitions(for: date)
-        let regularGoal = challenge.regularGoal
-        let percentage = dailyRepetitions / regularGoal
-        let goalHeight = maxHeight * goalHeightFraction
-        let result = goalHeight * CGFloat(percentage)
-        return result.clamped(to: 0...maxHeight)
     }
 }
 

@@ -23,13 +23,13 @@ struct ContentView: View {
                     
                     ForEach(viewModel.challenges) { (challenge: Challenge) in
                             NavigationLink(
-                                destination: ChallengeView(challenge: challenge)) {
+                                destination: ChallengeView(viewModel: ChallengeDetailViewModel(id: challenge.id, managedObjectContext: managedObjectContext))) {
                                 ChallengeCard(challenge: challenge)
                             }
 
                         .padding(.horizontal)
                     }
-                    .onDelete(perform: removeChallenges)
+                    .onDelete(perform: viewModel.removeChallenges)
                 }
             }
             .listStyle(PlainListStyle())
@@ -42,18 +42,14 @@ struct ContentView: View {
                 })
             })
             .sheet(isPresented: $showCreateChallengeSheet, content: {
-                CreateChallengeForm()
+                CreateChallengeForm(viewModel: viewModel)
             })
         }
     }
-    
-    func removeChallenges(at offsets: IndexSet) {
-        viewModel.removeChallenges(at: offsets)
-    }
 }
 
-//struct ContentView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
-//    }
-//}
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView(viewModel: ChallengesViewModel(managedObjectContext: PersistenceController.preview.container.viewContext)).environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+    }
+}

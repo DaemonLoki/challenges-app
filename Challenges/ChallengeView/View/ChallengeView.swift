@@ -13,36 +13,29 @@ struct ChallengeView: View {
     
     @State private var currentDate = Date()
     
-    @ObservedObject var challenge: Challenge
+    @ObservedObject var viewModel: ChallengeDetailViewModel
     
     var body: some View {
         ZStack {
             VStack {
                 HStack {
-                DailyCountCard(count: challenge.dailyRepetitions(for: currentDate), goal: challenge.regularGoal)
+                    DailyCountCard(count: viewModel.challenge.dailyRepetitions(for: currentDate), goal: viewModel.challenge.regularGoal)
                     .padding()
                 
-                TotalCountCard(totalCount: challenge.totalCount, goal: challenge.goal)
+                    TotalCountCard(totalCount: viewModel.challengeTotalCount, goal: viewModel.challengeGoal)
                     .padding()
                 }
                 
-                WeeklyGraphCard(challenge: challenge, currentDate: currentDate)
+                WeeklyGraphCard(challenge: viewModel.challenge, currentDate: currentDate)
                     .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
                     .padding()
                 
                 Spacer()
                 
             }
-            .navigationTitle(challenge.unwrappedName)
+            .navigationTitle(viewModel.challengeName)
             
-            CreateActionContainer(challenge: challenge)
+            CreateActionContainer(challenge: viewModel.challenge)
         }
-    }
-}
-
-struct ChallengeView_Previews: PreviewProvider {
-    static var previews: some View {
-        ChallengeView(challenge: Challenge.preview)
-            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }

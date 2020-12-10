@@ -37,7 +37,6 @@ struct CreateActionContainer: View {
                             }
                         } else {
                             self.currentScale = abs(value.translation.height)
-                            print(abs(value.translation.height))
                         }
                     }
                     .onEnded { value in

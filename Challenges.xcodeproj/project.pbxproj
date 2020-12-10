@@ -38,6 +38,8 @@
 		ACCF1923257C340700B6B07D /* VisualEffectBlur.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCF1922257C340700B6B07D /* VisualEffectBlur.swift */; };
 		ACDB69652581824B0011658F /* ProgressArc.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDB69642581824B0011658F /* ProgressArc.swift */; };
 		ACDB696A25818A550011658F /* ChallengesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDB696925818A550011658F /* ChallengesViewModel.swift */; };
+		ACDB697B25823A480011658F /* ChallengeDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDB697A25823A480011658F /* ChallengeDetailViewModel.swift */; };
+		ACF118EC258246A700AD1D80 /* Challenge+FetchRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF118EB258246A700AD1D80 /* Challenge+FetchRequests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +96,8 @@
 		ACCF1922257C340700B6B07D /* VisualEffectBlur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualEffectBlur.swift; sourceTree = "<group>"; };
 		ACDB69642581824B0011658F /* ProgressArc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressArc.swift; sourceTree = "<group>"; };
 		ACDB696925818A550011658F /* ChallengesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengesViewModel.swift; sourceTree = "<group>"; };
+		ACDB697A25823A480011658F /* ChallengeDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeDetailViewModel.swift; sourceTree = "<group>"; };
+		ACF118EB258246A700AD1D80 /* Challenge+FetchRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Challenge+FetchRequests.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +152,7 @@
 		AC325FEF2551EE40000D14B7 /* Challenges */ = {
 			isa = PBXGroup;
 			children = (
+				ACF118EA2582469500AD1D80 /* Model */,
 				ACCF1919257C2EAE00B6B07D /* ChallengesOverview */,
 				ACCF1917257C2E5C00B6B07D /* ChallengeView */,
 				ACCF1918257C2E7B00B6B07D /* Extensions */,
@@ -191,14 +196,8 @@
 		ACCF1917257C2E5C00B6B07D /* ChallengeView */ = {
 			isa = PBXGroup;
 			children = (
-				AC8650EA2553541600CD4766 /* ChallengeView.swift */,
-				ACBA03BC2567B30C007AB2B1 /* TotalCountCard.swift */,
-				ACBA03B7256730E2007AB2B1 /* DailyCountCard.swift */,
-				ACBB98A625686D8E00B2F11E /* WeeklyGraphCard.swift */,
-				ACA73E07256AB4D4008BD1B7 /* GraphBarView.swift */,
-				AC0A55F1255C7A5A00F703FE /* CreateActionContainer.swift */,
-				ACA1E50E2554AD6300E18CE7 /* CreateActionForm.swift */,
-				ACDB69642581824B0011658F /* ProgressArc.swift */,
+				ACDB697F2582422D0011658F /* View */,
+				ACDB6980258242360011658F /* ViewModel */,
 			);
 			path = ChallengeView;
 			sourceTree = "<group>";
@@ -219,12 +218,59 @@
 		ACCF1919257C2EAE00B6B07D /* ChallengesOverview */ = {
 			isa = PBXGroup;
 			children = (
+				ACF118F12582476900AD1D80 /* View */,
+				ACF118F02582476300AD1D80 /* ViewModel */,
+			);
+			path = ChallengesOverview;
+			sourceTree = "<group>";
+		};
+		ACDB697F2582422D0011658F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AC8650EA2553541600CD4766 /* ChallengeView.swift */,
+				ACBA03BC2567B30C007AB2B1 /* TotalCountCard.swift */,
+				ACBA03B7256730E2007AB2B1 /* DailyCountCard.swift */,
+				ACBB98A625686D8E00B2F11E /* WeeklyGraphCard.swift */,
+				ACA73E07256AB4D4008BD1B7 /* GraphBarView.swift */,
+				AC0A55F1255C7A5A00F703FE /* CreateActionContainer.swift */,
+				ACA1E50E2554AD6300E18CE7 /* CreateActionForm.swift */,
+				ACDB69642581824B0011658F /* ProgressArc.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		ACDB6980258242360011658F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				ACDB697A25823A480011658F /* ChallengeDetailViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		ACF118EA2582469500AD1D80 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				ACF118EB258246A700AD1D80 /* Challenge+FetchRequests.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		ACF118F02582476300AD1D80 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				ACDB696925818A550011658F /* ChallengesViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		ACF118F12582476900AD1D80 /* View */ = {
+			isa = PBXGroup;
+			children = (
 				AC32602F25520ADC000D14B7 /* CreateChallengeForm.swift */,
 				AC325FF22551EE40000D14B7 /* ContentView.swift */,
 				ACCF191D257C2FC600B6B07D /* ChallengeCard.swift */,
-				ACDB696925818A550011658F /* ChallengesViewModel.swift */,
 			);
-			path = ChallengesOverview;
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -379,8 +425,10 @@
 				ACA73DFB256AAA21008BD1B7 /* Comparable+Clamping.swift in Sources */,
 				ACBD3B8C256501B900A2508B /* Challenge+CoreDataProperties.swift in Sources */,
 				ACBD3B93256501CF00A2508B /* Action+CoreDataProperties.swift in Sources */,
+				ACDB697B25823A480011658F /* ChallengeDetailViewModel.swift in Sources */,
 				ACA73E08256AB4D4008BD1B7 /* GraphBarView.swift in Sources */,
 				ACBB98A725686D8E00B2F11E /* WeeklyGraphCard.swift in Sources */,
+				ACF118EC258246A700AD1D80 /* Challenge+FetchRequests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
