@@ -39,6 +39,7 @@
 		ACDB69652581824B0011658F /* ProgressArc.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDB69642581824B0011658F /* ProgressArc.swift */; };
 		ACDB696A25818A550011658F /* ChallengesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDB696925818A550011658F /* ChallengesViewModel.swift */; };
 		ACDB697B25823A480011658F /* ChallengeDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDB697A25823A480011658F /* ChallengeDetailViewModel.swift */; };
+		ACF118EC258246A700AD1D80 /* Challenge+FetchRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF118EB258246A700AD1D80 /* Challenge+FetchRequests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +97,7 @@
 		ACDB69642581824B0011658F /* ProgressArc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressArc.swift; sourceTree = "<group>"; };
 		ACDB696925818A550011658F /* ChallengesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengesViewModel.swift; sourceTree = "<group>"; };
 		ACDB697A25823A480011658F /* ChallengeDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeDetailViewModel.swift; sourceTree = "<group>"; };
+		ACF118EB258246A700AD1D80 /* Challenge+FetchRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Challenge+FetchRequests.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +152,7 @@
 		AC325FEF2551EE40000D14B7 /* Challenges */ = {
 			isa = PBXGroup;
 			children = (
+				ACF118EA2582469500AD1D80 /* Model */,
 				ACCF1919257C2EAE00B6B07D /* ChallengesOverview */,
 				ACCF1917257C2E5C00B6B07D /* ChallengeView */,
 				ACCF1918257C2E7B00B6B07D /* Extensions */,
@@ -244,6 +247,14 @@
 				ACDB697A25823A480011658F /* ChallengeDetailViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		ACF118EA2582469500AD1D80 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				ACF118EB258246A700AD1D80 /* Challenge+FetchRequests.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -401,6 +412,7 @@
 				ACDB697B25823A480011658F /* ChallengeDetailViewModel.swift in Sources */,
 				ACA73E08256AB4D4008BD1B7 /* GraphBarView.swift in Sources */,
 				ACBB98A725686D8E00B2F11E /* WeeklyGraphCard.swift in Sources */,
+				ACF118EC258246A700AD1D80 /* Challenge+FetchRequests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

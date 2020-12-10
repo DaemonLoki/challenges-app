@@ -55,20 +55,3 @@ extension ChallengesViewModel: NSFetchedResultsControllerDelegate {
         challenges = challengeItems
     }
 }
-
-extension Challenge {
-    static var allChallengesRequest: NSFetchRequest<Challenge> {
-        let request: NSFetchRequest<Challenge> = Challenge.fetchRequest()
-        request.sortDescriptors = [NSSortDescriptor(keyPath: \Challenge.start, ascending: true)]
-        
-        return request
-    }
-    
-    static func challengeDetailRequest(for id: UUID) -> NSFetchRequest<Challenge> {
-        let request: NSFetchRequest<Challenge> = Challenge.fetchRequest()
-        request.predicate = NSPredicate(format: "id == %@", id.uuidString)
-        request.sortDescriptors = [NSSortDescriptor(keyPath: \Challenge.start, ascending: true)]
-        
-        return request
-    }
-}
