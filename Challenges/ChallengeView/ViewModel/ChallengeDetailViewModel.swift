@@ -44,6 +44,16 @@ class ChallengeDetailViewModel: NSObject, ObservableObject {
         super.init()
         challengesController.delegate = self
     }
+    
+    func addAction(with count: Double, at date: Date) throws {
+        let action = Action(context: managedObjectContext)
+        action.count = count
+        action.date = date
+        
+        challenge.addToActions(action)
+        
+        try managedObjectContext.save()
+    }
 }
 
 extension ChallengeDetailViewModel: NSFetchedResultsControllerDelegate {

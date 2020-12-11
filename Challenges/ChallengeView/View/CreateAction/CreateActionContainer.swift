@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CreateActionContainer: View {
     
-    @ObservedObject var challenge: Challenge
+    @ObservedObject var viewModel: ChallengeDetailViewModel
     @Binding var createActionExpanded: Bool
     
     @Namespace var namespace
@@ -20,7 +20,7 @@ struct CreateActionContainer: View {
         VStack {
             // Create Action Card
             if createActionExpanded {
-                CreateActionForm(challenge: challenge) {
+                CreateActionForm(viewModel: viewModel) {
                     withAnimation {
                         createActionExpanded.toggle()
                     }
@@ -82,6 +82,6 @@ struct CreateActionContainer: View {
 
 struct CreateActionContainer_Previews: PreviewProvider {
     static var previews: some View {
-        CreateActionContainer(challenge: .preview, createActionExpanded: .constant(true))
+        CreateActionContainer(viewModel: ChallengeDetailViewModel(id: UUID(), managedObjectContext: PersistenceController.preview.container.viewContext), createActionExpanded: .constant(true))
     }
 }

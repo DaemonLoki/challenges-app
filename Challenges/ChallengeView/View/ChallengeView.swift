@@ -11,6 +11,8 @@ struct ChallengeView: View {
     
     @Environment(\.managedObjectContext) private var viewContext
     
+    @State private var defaultCount: Double? = nil
+    
     @State private var currentDate = Date()
     @State private var createActionExpanded = false
     
@@ -40,15 +42,15 @@ struct ChallengeView: View {
                 Spacer()
                 
                 HStack {
-                    CreateActionContainer(challenge: viewModel.challenge, createActionExpanded: $createActionExpanded)
+                    CreateActionContainer(viewModel: viewModel, createActionExpanded: $createActionExpanded)
                     
                     Spacer()
                     
-                    if !createActionExpanded {
+                    if !createActionExpanded && defaultCount != nil {
                         Button {
                             // TODO
                         } label: {
-                            QuickAddButton(text: "+25")
+                            QuickAddButton(text: "+\(defaultCount ?? 10)")
                         }
                         .clipShape(
                             RoundedRectangle(cornerRadius: 30, style: .continuous)
@@ -58,6 +60,16 @@ struct ChallengeView: View {
                     }
                 }
             }
+        }
+        .onAppear {
+            loadDefaultCountValue()
+        }
+    }
+    
+    func loadDefaultCountValue() {
+        let savedValueForDefaultCount = UserDefaults.standard.double(forKey: viewModel.challenge.defaultActionCountStorageKey)
+        if savedValueForDefaultCount > 0 {
+            defaultCount = savedValueForDefaultCount
         }
     }
 }
