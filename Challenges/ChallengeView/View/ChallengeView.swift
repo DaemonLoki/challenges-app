@@ -11,7 +11,10 @@ struct ChallengeView: View {
     
     @Environment(\.managedObjectContext) private var viewContext
     
+    @State private var defaultCount: Double? = nil
+    
     @State private var currentDate = Date()
+    @State private var createActionExpanded = false
     
     @ObservedObject var viewModel: ChallengeDetailViewModel
     
@@ -20,10 +23,10 @@ struct ChallengeView: View {
             VStack {
                 HStack {
                     DailyCountCard(count: viewModel.challenge.dailyRepetitions(for: currentDate), goal: viewModel.challenge.regularGoal)
-                    .padding()
-                
+                        .padding()
+                    
                     TotalCountCard(totalCount: viewModel.challengeTotalCount, goal: viewModel.challengeGoal)
-                    .padding()
+                        .padding()
                 }
                 
                 WeeklyGraphCard(challenge: viewModel.challenge, currentDate: currentDate)
@@ -35,7 +38,49 @@ struct ChallengeView: View {
             }
             .navigationTitle(viewModel.challengeName)
             
-            CreateActionContainer(challenge: viewModel.challenge)
+            VStack {
+                Spacer()
+                
+                HStack {
+                    if defaultCount == nil {
+                        Spacer()
+                    }
+                    
+                    CreateActionContainer(viewModel: viewModel, defaultCount: $defaultCount, createActionExpanded: $createActionExpanded)
+                    
+                    if defaultCount != nil {
+                        Spacer()
+                        
+                        if !createActionExpanded {
+                            Button {
+                                guard let defaultValue = defaultCount else { return }
+                                do {
+                                    try viewModel.addAction(with: defaultValue, at: Date())
+                                } catch {
+                                    print("Error occurred when trying to save default value of \(defaultValue) to challenge \(viewModel.challenge.unwrappedName)")
+                                }
+                            } label: {
+                                QuickAddButton(count: defaultCount?.formatTwoDigitsMax() ?? "10")
+                            }
+                            .clipShape(
+                                RoundedRectangle(cornerRadius: 30, style: .continuous)
+                            )
+                            .frame(width: 60, height: 60)
+                            .padding()
+                        }
+                    }
+                }
+            }
+        }
+        .onAppear {
+            loadDefaultCountValue()
+        }
+    }
+    
+    func loadDefaultCountValue() {
+        let savedValueForDefaultCount = UserDefaults.standard.double(forKey: viewModel.challenge.defaultActionCountStorageKey)
+        if savedValueForDefaultCount > 0 {
+            defaultCount = savedValueForDefaultCount
         }
     }
 }
