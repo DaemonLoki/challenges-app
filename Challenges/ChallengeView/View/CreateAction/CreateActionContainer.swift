@@ -10,6 +10,7 @@ import SwiftUI
 struct CreateActionContainer: View {
     
     @ObservedObject var viewModel: ChallengeDetailViewModel
+    @Binding var defaultCount: Double?
     @Binding var createActionExpanded: Bool
     
     @Namespace var namespace
@@ -20,7 +21,7 @@ struct CreateActionContainer: View {
         VStack {
             // Create Action Card
             if createActionExpanded {
-                CreateActionForm(viewModel: viewModel) {
+                CreateActionForm(viewModel: viewModel, defaultCount: $defaultCount) {
                     withAnimation {
                         createActionExpanded.toggle()
                     }
@@ -82,6 +83,6 @@ struct CreateActionContainer: View {
 
 struct CreateActionContainer_Previews: PreviewProvider {
     static var previews: some View {
-        CreateActionContainer(viewModel: ChallengeDetailViewModel(id: UUID(), managedObjectContext: PersistenceController.preview.container.viewContext), createActionExpanded: .constant(true))
+        CreateActionContainer(viewModel: ChallengeDetailViewModel(id: UUID(), managedObjectContext: PersistenceController.preview.container.viewContext), defaultCount: .constant(0.0), createActionExpanded: .constant(true))
     }
 }

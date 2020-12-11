@@ -42,7 +42,7 @@ struct ChallengeView: View {
                 Spacer()
                 
                 HStack {
-                    CreateActionContainer(viewModel: viewModel, createActionExpanded: $createActionExpanded)
+                    CreateActionContainer(viewModel: viewModel, defaultCount: $defaultCount, createActionExpanded: $createActionExpanded)
                     
                     Spacer()
                     
@@ -50,7 +50,7 @@ struct ChallengeView: View {
                         Button {
                             // TODO
                         } label: {
-                            QuickAddButton(text: "+\(defaultCount ?? 10)")
+                            QuickAddButton(count: defaultCount?.formatTwoDigitsMax() ?? "10")
                         }
                         .clipShape(
                             RoundedRectangle(cornerRadius: 30, style: .continuous)

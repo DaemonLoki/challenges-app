@@ -10,6 +10,7 @@ import SwiftUI
 struct CreateActionForm: View {
     
     @ObservedObject var viewModel: ChallengeDetailViewModel
+    @Binding var defaultCount: Double?
     
     @State private var count = ""
     @State private var happenedInPast = false
@@ -44,6 +45,7 @@ struct CreateActionForm: View {
                 Button(action: {
                     do {
                         try viewModel.addAction(with: Double(count) ?? 0.0, at: happenedInPast ? actionDate : Date())
+                        defaultCount = Double(count)
                     } catch {
                         print("Error occurred: \(error)")
                     }
@@ -65,7 +67,7 @@ struct CreateActionForm: View {
 struct CreateActionForm_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            CreateActionForm(viewModel: ChallengeDetailViewModel(id: UUID(), managedObjectContext: PersistenceController.preview.container.viewContext)) {}
+            CreateActionForm(viewModel: ChallengeDetailViewModel(id: UUID(), managedObjectContext: PersistenceController.preview.container.viewContext), defaultCount: .constant(20.0)) {}
                 .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
         }
     }

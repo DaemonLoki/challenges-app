@@ -231,8 +231,8 @@
 		ACDB697F2582422D0011658F /* View */ = {
 			isa = PBXGroup;
 			children = (
-				ACF118FB2583757500AD1D80 /* CreateAction */,
 				AC8650EA2553541600CD4766 /* ChallengeView.swift */,
+				ACF118FB2583757500AD1D80 /* CreateAction */,
 				ACBA03BC2567B30C007AB2B1 /* TotalCountCard.swift */,
 				ACBA03B7256730E2007AB2B1 /* DailyCountCard.swift */,
 				ACBB98A625686D8E00B2F11E /* WeeklyGraphCard.swift */,
