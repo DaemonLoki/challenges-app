@@ -10,7 +10,7 @@ import SwiftUI
 struct CreateActionContainer: View {
     
     @ObservedObject var challenge: Challenge
-    @State private var createActionExpanded = false
+    @Binding var createActionExpanded: Bool
     
     @Namespace var namespace
     
@@ -57,11 +57,7 @@ struct CreateActionContainer: View {
             
             // Button
             if !createActionExpanded {
-                Spacer()
-                
                 HStack {
-                    Spacer()
-                    
                     Button {
                         withAnimation {
                             createActionExpanded = true
@@ -86,6 +82,6 @@ struct CreateActionContainer: View {
 
 struct CreateActionContainer_Previews: PreviewProvider {
     static var previews: some View {
-        CreateActionContainer(challenge: .preview)
+        CreateActionContainer(challenge: .preview, createActionExpanded: .constant(true))
     }
 }

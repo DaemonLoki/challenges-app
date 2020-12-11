@@ -12,6 +12,7 @@ struct ChallengeView: View {
     @Environment(\.managedObjectContext) private var viewContext
     
     @State private var currentDate = Date()
+    @State private var createActionExpanded = false
     
     @ObservedObject var viewModel: ChallengeDetailViewModel
     
@@ -20,10 +21,10 @@ struct ChallengeView: View {
             VStack {
                 HStack {
                     DailyCountCard(count: viewModel.challenge.dailyRepetitions(for: currentDate), goal: viewModel.challenge.regularGoal)
-                    .padding()
-                
+                        .padding()
+                    
                     TotalCountCard(totalCount: viewModel.challengeTotalCount, goal: viewModel.challengeGoal)
-                    .padding()
+                        .padding()
                 }
                 
                 WeeklyGraphCard(challenge: viewModel.challenge, currentDate: currentDate)
@@ -35,7 +36,24 @@ struct ChallengeView: View {
             }
             .navigationTitle(viewModel.challengeName)
             
-            CreateActionContainer(challenge: viewModel.challenge)
+            VStack {
+                Spacer()
+                
+                HStack {
+                    CreateActionContainer(challenge: viewModel.challenge, createActionExpanded: $createActionExpanded)
+                    
+                    Spacer()
+                    
+                    if !createActionExpanded {
+                        Button {
+                            // TODO
+                        } label: {
+                            Image(systemName: "plus")
+                                .background(Color.blue)
+                        }
+                    }
+                }
+            }
         }
     }
 }
