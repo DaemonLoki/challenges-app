@@ -53,6 +53,8 @@ class ChallengeDetailViewModel: NSObject, ObservableObject {
         challenge.addToActions(action)
         
         try managedObjectContext.save()
+        
+        UserDefaults.standard.set(count, forKey: challenge.defaultActionCountStorageKey)
     }
 }
 
