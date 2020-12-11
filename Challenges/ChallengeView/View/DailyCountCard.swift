@@ -35,7 +35,7 @@ struct DailyCountCard: View {
             
             if goalReached {
                 RoundedRectangle(cornerRadius: 25.0, style: .continuous)
-                    .fill(LinearGradient.logoGradient)
+                    .stroke(LinearGradient.logoGradient, lineWidth: 8)
             }
             
             VStack {
@@ -47,7 +47,7 @@ struct DailyCountCard: View {
                 if let unwrappedGoal = goal {
                     Text(unwrappedGoal.formatTwoDigitsMax())
                 }
-            }.foregroundColor(goalReached ? .white : .primary)
+            }
             
             if !goalReached {
                 ProgressArc(currentValue: count, goalValue: goal ?? 1.0)
