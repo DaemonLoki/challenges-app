@@ -9,24 +9,25 @@ import SwiftUI
 import CoreData
 
 struct DailyCountCard: View {
-
+    
     @Environment(\.colorScheme) var colorScheme
     
-    var count: Double
-    var goal: Double?
+    @ObservedObject var viewModel: ChallengeDetailViewModel
     
     @State private var circleDegree: Double = 0
     
+    var count: Double {
+        viewModel.challenge.dailyRepetitions(for: Date())
+    }
+    
     var circlePercentage: Double {
-        guard let unwrappedGoal = goal else { return 0.0 }
-        return count * 360 / unwrappedGoal
+        return count * 360 / viewModel.challenge.regularGoal
     }
     
     var goalReached: Bool {
-        guard let unwrappedGoal = goal else { return false }
-        return count >= unwrappedGoal
+        return count >= viewModel.challenge.regularGoal
     }
-        
+    
     var body: some View {
         ZStack {
             VisualEffectBlur(blurStyle: colorScheme == .dark ? .systemThinMaterialDark : .systemThinMaterialLight, vibrancyStyle: .separator) {
@@ -44,36 +45,43 @@ struct DailyCountCard: View {
                 Text(count.formatTwoDigitsMax())
                     .font(.largeTitle)
                 
-                if let unwrappedGoal = goal {
-                    Text(unwrappedGoal.formatTwoDigitsMax())
-                }
+                Text(viewModel.challenge.regularGoal.formatTwoDigitsMax())
             }
             
             if !goalReached {
-                ProgressArc(currentValue: count, goalValue: goal ?? 1.0)
+                ProgressArc(currentValue: circleDegree, goalValue: viewModel.challenge.regularGoal)
                     .frame(width: 120, height: 120)
             }
         }
         .frame(width: 200, height: 200)
         .clipShape(RoundedRectangle(cornerRadius: 25.0, style: .continuous))
         .shadow(radius: goalReached ? 10 : 2)
-        .onAppear {
-            circleDegree = circlePercentage
-        }
+        .onReceive(viewModel.$dailyCount, perform: { value in
+            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(circleDegree == 0 ? 300 : 0)) {
+                withAnimation(Animation.spring()) {
+                    circleDegree = circlePercentage
+                }
+            }
+        })
     }
 }
 
 struct DailyCountCard_Previews: PreviewProvider {
     static var previews: some View {
-        DailyCountCard(count: 100, goal: 100)
+        DailyCountCard(viewModel: ChallengeDetailViewModel(id: UUID(), managedObjectContext: PersistenceController.preview.container.viewContext))
     }
 }
 
 struct Arc: InsettableShape {
     var startAngle: Angle
-    var endAngle: Angle
+    var endAngle: Double
     
     var insetAmount: CGFloat = 0
+    
+    var animatableData: Double {
+        get { return endAngle }
+        set { endAngle = newValue }
+    }
     
     func inset(by amount: CGFloat) -> some InsettableShape {
         var arc = self
@@ -85,7 +93,7 @@ struct Arc: InsettableShape {
     func path(in rect: CGRect) -> Path {
         let rotationAdjustment = Angle.degrees(90)
         let modifiedStart = startAngle - rotationAdjustment
-        let modifiedEnd = endAngle - rotationAdjustment
+        let modifiedEnd = .degrees(endAngle) - rotationAdjustment
         
         var path = Path()
         path.addArc(center: CGPoint(x: rect.midX, y: rect.midY), radius: rect.width / 2 - insetAmount, startAngle: modifiedStart, endAngle: modifiedEnd, clockwise: false)

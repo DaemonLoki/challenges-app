@@ -11,6 +11,8 @@ import CoreData
 class ChallengeDetailViewModel: NSObject, ObservableObject {
     @Published var challenge: Challenge
     
+    @Published var dailyCount: Double
+    
     var challengeName: String {
         challenge.unwrappedName
     }
@@ -31,12 +33,11 @@ class ChallengeDetailViewModel: NSObject, ObservableObject {
         
         self.managedObjectContext = managedObjectContext
         
-        
-        
         do {
             try challengesController.performFetch()
             guard let challenge = challengesController.fetchedObjects?.first else { fatalError("Couldn't find challenge with id \(id)") }
             self.challenge = challenge
+            dailyCount = challenge.dailyRepetitions(for: Date())
         } catch {
             fatalError("Failed to fetch item for challenge with id \(id)")
         }
@@ -55,6 +56,8 @@ class ChallengeDetailViewModel: NSObject, ObservableObject {
         try managedObjectContext.save()
         
         UserDefaults.standard.set(count, forKey: challenge.defaultActionCountStorageKey)
+        
+        dailyCount = challenge.dailyRepetitions(for: Date())
     }
 }
 
