@@ -42,21 +42,32 @@ struct ChallengeView: View {
                 Spacer()
                 
                 HStack {
+                    if defaultCount == nil {
+                        Spacer()
+                    }
+                    
                     CreateActionContainer(viewModel: viewModel, defaultCount: $defaultCount, createActionExpanded: $createActionExpanded)
                     
-                    Spacer()
-                    
-                    if !createActionExpanded && defaultCount != nil {
-                        Button {
-                            // TODO
-                        } label: {
-                            QuickAddButton(count: defaultCount?.formatTwoDigitsMax() ?? "10")
+                    if defaultCount != nil {
+                        Spacer()
+                        
+                        if !createActionExpanded {
+                            Button {
+                                guard let defaultValue = defaultCount else { return }
+                                do {
+                                    try viewModel.addAction(with: defaultValue, at: Date())
+                                } catch {
+                                    print("Error occurred when trying to save default value of \(defaultValue) to challenge \(viewModel.challenge.unwrappedName)")
+                                }
+                            } label: {
+                                QuickAddButton(count: defaultCount?.formatTwoDigitsMax() ?? "10")
+                            }
+                            .clipShape(
+                                RoundedRectangle(cornerRadius: 30, style: .continuous)
+                            )
+                            .frame(width: 60, height: 60)
+                            .padding()
                         }
-                        .clipShape(
-                            RoundedRectangle(cornerRadius: 30, style: .continuous)
-                        )
-                        .frame(width: 60, height: 60)
-                        .padding()
                     }
                 }
             }
