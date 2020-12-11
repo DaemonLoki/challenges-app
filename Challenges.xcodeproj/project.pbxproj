@@ -19,6 +19,7 @@
 		AC3260082551EE41000D14B7 /* ChallengesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3260072551EE41000D14B7 /* ChallengesTests.swift */; };
 		AC3260132551EE41000D14B7 /* ChallengesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3260122551EE41000D14B7 /* ChallengesUITests.swift */; };
 		AC32603025520ADC000D14B7 /* CreateChallengeForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC32602F25520ADC000D14B7 /* CreateChallengeForm.swift */; };
+		AC3D226B2583773800334594 /* QuickAddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3D226A2583773800334594 /* QuickAddButton.swift */; };
 		AC8650EB2553541600CD4766 /* ChallengeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8650EA2553541600CD4766 /* ChallengeView.swift */; };
 		ACA1E50F2554AD6300E18CE7 /* CreateActionForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA1E50E2554AD6300E18CE7 /* CreateActionForm.swift */; };
 		ACA73DEA256A7A5C008BD1B7 /* Date+DaysForWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA73DE9256A7A5C008BD1B7 /* Date+DaysForWeek.swift */; };
@@ -78,6 +79,7 @@
 		AC3260122551EE41000D14B7 /* ChallengesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengesUITests.swift; sourceTree = "<group>"; };
 		AC3260142551EE41000D14B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC32602F25520ADC000D14B7 /* CreateChallengeForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChallengeForm.swift; sourceTree = "<group>"; };
+		AC3D226A2583773800334594 /* QuickAddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickAddButton.swift; sourceTree = "<group>"; };
 		AC8650EA2553541600CD4766 /* ChallengeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeView.swift; sourceTree = "<group>"; };
 		ACA1E50E2554AD6300E18CE7 /* CreateActionForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateActionForm.swift; sourceTree = "<group>"; };
 		ACA73DE9256A7A5C008BD1B7 /* Date+DaysForWeek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+DaysForWeek.swift"; sourceTree = "<group>"; };
@@ -227,13 +229,12 @@
 		ACDB697F2582422D0011658F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				ACF118FB2583757500AD1D80 /* CreateAction */,
 				AC8650EA2553541600CD4766 /* ChallengeView.swift */,
 				ACBA03BC2567B30C007AB2B1 /* TotalCountCard.swift */,
 				ACBA03B7256730E2007AB2B1 /* DailyCountCard.swift */,
 				ACBB98A625686D8E00B2F11E /* WeeklyGraphCard.swift */,
 				ACA73E07256AB4D4008BD1B7 /* GraphBarView.swift */,
-				AC0A55F1255C7A5A00F703FE /* CreateActionContainer.swift */,
-				ACA1E50E2554AD6300E18CE7 /* CreateActionForm.swift */,
 				ACDB69642581824B0011658F /* ProgressArc.swift */,
 			);
 			path = View;
@@ -271,6 +272,16 @@
 				ACCF191D257C2FC600B6B07D /* ChallengeCard.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		ACF118FB2583757500AD1D80 /* CreateAction */ = {
+			isa = PBXGroup;
+			children = (
+				AC0A55F1255C7A5A00F703FE /* CreateActionContainer.swift */,
+				ACA1E50E2554AD6300E18CE7 /* CreateActionForm.swift */,
+				AC3D226A2583773800334594 /* QuickAddButton.swift */,
+			);
+			path = CreateAction;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -411,6 +422,7 @@
 				ACBA03B32566FB81007AB2B1 /* Double+Formatter.swift in Sources */,
 				AC0A55E8255C754D00F703FE /* LinearGradient.swift in Sources */,
 				AC325FF32551EE40000D14B7 /* ContentView.swift in Sources */,
+				AC3D226B2583773800334594 /* QuickAddButton.swift in Sources */,
 				ACBA03B8256730E2007AB2B1 /* DailyCountCard.swift in Sources */,
 				AC32603025520ADC000D14B7 /* CreateChallengeForm.swift in Sources */,
 				AC325FF12551EE40000D14B7 /* ChallengesApp.swift in Sources */,

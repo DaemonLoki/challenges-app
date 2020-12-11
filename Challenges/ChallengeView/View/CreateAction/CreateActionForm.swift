@@ -43,8 +43,7 @@ struct CreateActionForm: View {
                 }
                 
                 Button(action: {
-                    let action = Action(context: managedObjectContext)
-//                    action.challenge = challenge
+                    let action = Action(context: managedObjectContext) 
                     action.count = Double(count) ?? 0.0
                     action.date = happenedInPast ? actionDate : Date()
                     

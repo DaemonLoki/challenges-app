@@ -48,9 +48,13 @@ struct ChallengeView: View {
                         Button {
                             // TODO
                         } label: {
-                            Image(systemName: "plus")
-                                .background(Color.blue)
+                            QuickAddButton(text: "+25")
                         }
+                        .clipShape(
+                            RoundedRectangle(cornerRadius: 30, style: .continuous)
+                        )
+                        .frame(width: 60, height: 60)
+                        .padding()
                     }
                 }
             }
