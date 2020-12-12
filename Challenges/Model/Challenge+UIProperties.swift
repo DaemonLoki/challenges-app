@@ -16,17 +16,15 @@ extension Challenge {
             formatter.dateFormat = "yyyy-MM-dd"
             
             return formatter.string(from: action.unwrappedDate) == formatter.string(from: date)
-        }.reduce(0.0) { (previousResult, action) -> Double in
-            previousResult + action.count
         }
+        .map { $0.count }
+        .reduce(0.0, +)
     }
     
     var totalCount: Double {
         return actionsArray
             .map { $0.count }
-            .reduce(0.0, { accumulated, nextValue in
-                accumulated + nextValue
-            })
+            .reduce(0.0, +)
     }
     
     func heightOfBar(for date: Date, with maxHeight: CGFloat) -> CGFloat {
