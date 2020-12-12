@@ -11,13 +11,10 @@ struct WeeklyGraphCard: View {
     
     // Outside elements
     @ObservedObject var viewModel: ChallengeDetailViewModel
+    
     var currentDate: Date
     
     let maxHeight: CGFloat = 120
-    let goalHeightFraction: CGFloat = 0.8
-    
-    let baseDelay = 0.1
-    let delaySteps = 0.05
     
     var body: some View {
         HStack(alignment: .bottom) {
