@@ -26,7 +26,7 @@ struct WeeklyGraphCard: View {
                     VStack {
                         Spacer()
                         
-                        GraphBarView(viewModel: viewModel, date: currentDate.daysForWeekBefore[index], maxHeight: maxHeight, index: index)
+                        GraphBarView(viewModel: viewModel, index: index)
                     }
                     .frame(height: maxHeight)
                     

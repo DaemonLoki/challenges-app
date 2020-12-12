@@ -11,8 +11,6 @@ struct GraphBarView: View {
     
     @ObservedObject var viewModel: ChallengeDetailViewModel
     
-    var date: Date
-    var maxHeight: CGFloat
     var index: Int
     
     @State private var barHeight: CGFloat = 0
@@ -37,6 +35,6 @@ struct GraphBarView: View {
 
 struct GraphBarView_Previews: PreviewProvider {
     static var previews: some View {
-        GraphBarView(viewModel: ChallengeDetailViewModel(id: UUID(), managedObjectContext: PersistenceController.preview.container.viewContext), date: Date(), maxHeight: 120, index: 4)
+        GraphBarView(viewModel: ChallengeDetailViewModel(id: UUID(), managedObjectContext: PersistenceController.preview.container.viewContext), index: 4)
     }
 }
