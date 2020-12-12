@@ -7,11 +7,13 @@
 
 import Foundation
 import CoreData
+import CoreGraphics
 
 class ChallengeDetailViewModel: NSObject, ObservableObject {
     @Published var challenge: Challenge
     
     @Published var dailyCount: Double
+    @Published var valuesOfLastWeek: [CGFloat] = []
     
     var challengeName: String {
         challenge.unwrappedName
@@ -25,6 +27,8 @@ class ChallengeDetailViewModel: NSObject, ObservableObject {
         challenge.goal
     }
     
+    static let maxHeight: CGFloat = 120
+    
     private let challengesController: NSFetchedResultsController<Challenge>
     private let managedObjectContext: NSManagedObjectContext
     
@@ -35,15 +39,21 @@ class ChallengeDetailViewModel: NSObject, ObservableObject {
         
         do {
             try challengesController.performFetch()
-            guard let challenge = challengesController.fetchedObjects?.first else { fatalError("Couldn't find challenge with id \(id)") }
-            self.challenge = challenge
-            dailyCount = challenge.dailyRepetitions(for: Date())
+            guard let unwrappedChallenge = challengesController.fetchedObjects?.first else { fatalError("Couldn't find challenge with id \(id)") }
+            self.challenge = unwrappedChallenge
+            
+            // set publishers
+            dailyCount = unwrappedChallenge.dailyRepetitions(for: Date())
         } catch {
             fatalError("Failed to fetch item for challenge with id \(id)")
         }
         
         super.init()
         challengesController.delegate = self
+        
+        valuesOfLastWeek = Date().daysForWeekBefore.map {
+            challenge.heightOfBar(for: $0, with: ChallengeDetailViewModel.maxHeight)
+        }
     }
     
     func addAction(with count: Double, at date: Date) throws {
@@ -57,7 +67,14 @@ class ChallengeDetailViewModel: NSObject, ObservableObject {
         
         UserDefaults.standard.set(count, forKey: challenge.defaultActionCountStorageKey)
         
+        updatePublishers()
+    }
+    
+    private func updatePublishers() {
         dailyCount = challenge.dailyRepetitions(for: Date())
+        valuesOfLastWeek = Date().daysForWeekBefore.map {
+            challenge.heightOfBar(for: $0, with: ChallengeDetailViewModel.maxHeight)
+        }
     }
 }
 

@@ -29,7 +29,7 @@ struct ChallengeView: View {
                         .padding()
                 }
                 
-                WeeklyGraphCard(challenge: viewModel.challenge, currentDate: currentDate)
+                WeeklyGraphCard(viewModel: viewModel, currentDate: currentDate)
                     .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
                     .padding()
                 
