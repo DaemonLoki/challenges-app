@@ -21,6 +21,9 @@
 		AC32603025520ADC000D14B7 /* CreateChallengeForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC32602F25520ADC000D14B7 /* CreateChallengeForm.swift */; };
 		AC3D226B2583773800334594 /* QuickAddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3D226A2583773800334594 /* QuickAddButton.swift */; };
 		AC3D227025837EF000334594 /* Challenge+StorageKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3D226F25837EF000334594 /* Challenge+StorageKeys.swift */; };
+		AC3D227E2585163900334594 /* Challenge+UIProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3D227D2585163900334594 /* Challenge+UIProperties.swift */; };
+		AC3D22832585166B00334594 /* Challenge+Previews.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3D22822585166B00334594 /* Challenge+Previews.swift */; };
+		AC3D2288258516C900334594 /* Challenge+AdditionalProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3D2287258516C900334594 /* Challenge+AdditionalProperties.swift */; };
 		AC8650EB2553541600CD4766 /* ChallengeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8650EA2553541600CD4766 /* ChallengeView.swift */; };
 		ACA1E50F2554AD6300E18CE7 /* CreateActionForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA1E50E2554AD6300E18CE7 /* CreateActionForm.swift */; };
 		ACA73DEA256A7A5C008BD1B7 /* Date+DaysForWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA73DE9256A7A5C008BD1B7 /* Date+DaysForWeek.swift */; };
@@ -82,6 +85,9 @@
 		AC32602F25520ADC000D14B7 /* CreateChallengeForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChallengeForm.swift; sourceTree = "<group>"; };
 		AC3D226A2583773800334594 /* QuickAddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickAddButton.swift; sourceTree = "<group>"; };
 		AC3D226F25837EF000334594 /* Challenge+StorageKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Challenge+StorageKeys.swift"; sourceTree = "<group>"; };
+		AC3D227D2585163900334594 /* Challenge+UIProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Challenge+UIProperties.swift"; sourceTree = "<group>"; };
+		AC3D22822585166B00334594 /* Challenge+Previews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Challenge+Previews.swift"; sourceTree = "<group>"; };
+		AC3D2287258516C900334594 /* Challenge+AdditionalProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Challenge+AdditionalProperties.swift"; sourceTree = "<group>"; };
 		AC8650EA2553541600CD4766 /* ChallengeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeView.swift; sourceTree = "<group>"; };
 		ACA1E50E2554AD6300E18CE7 /* CreateActionForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateActionForm.swift; sourceTree = "<group>"; };
 		ACA73DE9256A7A5C008BD1B7 /* Date+DaysForWeek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+DaysForWeek.swift"; sourceTree = "<group>"; };
@@ -255,6 +261,9 @@
 			children = (
 				ACF118EB258246A700AD1D80 /* Challenge+FetchRequests.swift */,
 				AC3D226F25837EF000334594 /* Challenge+StorageKeys.swift */,
+				AC3D227D2585163900334594 /* Challenge+UIProperties.swift */,
+				AC3D22822585166B00334594 /* Challenge+Previews.swift */,
+				AC3D2287258516C900334594 /* Challenge+AdditionalProperties.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -419,6 +428,7 @@
 				AC325FFA2551EE40000D14B7 /* Persistence.swift in Sources */,
 				ACDB696A25818A550011658F /* ChallengesViewModel.swift in Sources */,
 				AC325FFD2551EE40000D14B7 /* Challenges.xcdatamodeld in Sources */,
+				AC3D2288258516C900334594 /* Challenge+AdditionalProperties.swift in Sources */,
 				ACA73DEA256A7A5C008BD1B7 /* Date+DaysForWeek.swift in Sources */,
 				ACCF191E257C2FC600B6B07D /* ChallengeCard.swift in Sources */,
 				ACCF1923257C340700B6B07D /* VisualEffectBlur.swift in Sources */,
@@ -434,6 +444,7 @@
 				AC0A55ED255C770200F703FE /* Color+Gradients.swift in Sources */,
 				ACBD3B92256501CF00A2508B /* Action+CoreDataClass.swift in Sources */,
 				ACDB69652581824B0011658F /* ProgressArc.swift in Sources */,
+				AC3D22832585166B00334594 /* Challenge+Previews.swift in Sources */,
 				AC8650EB2553541600CD4766 /* ChallengeView.swift in Sources */,
 				ACBA03BD2567B30C007AB2B1 /* TotalCountCard.swift in Sources */,
 				AC3D227025837EF000334594 /* Challenge+StorageKeys.swift in Sources */,
@@ -442,6 +453,7 @@
 				ACBD3B8C256501B900A2508B /* Challenge+CoreDataProperties.swift in Sources */,
 				ACBD3B93256501CF00A2508B /* Action+CoreDataProperties.swift in Sources */,
 				ACDB697B25823A480011658F /* ChallengeDetailViewModel.swift in Sources */,
+				AC3D227E2585163900334594 /* Challenge+UIProperties.swift in Sources */,
 				ACA73E08256AB4D4008BD1B7 /* GraphBarView.swift in Sources */,
 				ACBB98A725686D8E00B2F11E /* WeeklyGraphCard.swift in Sources */,
 				ACF118EC258246A700AD1D80 /* Challenge+FetchRequests.swift in Sources */,
