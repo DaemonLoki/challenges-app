@@ -7,6 +7,7 @@
 
 import Foundation
 import CoreData
+import SwiftUI
 
 class ChallengesViewModel: NSObject, ObservableObject {
     @Published var challenges: [Challenge] = []
@@ -29,6 +30,8 @@ class ChallengesViewModel: NSObject, ObservableObject {
         } catch {
             print("Failed to fetch items!")
         }
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(appEnteredForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
     }
     
     func removeChallenges(at offsets: IndexSet) {
@@ -70,6 +73,15 @@ class ChallengesViewModel: NSObject, ObservableObject {
         challenge.sendReminders = false
         
         try managedObjectContext.save()
+    }
+    
+    @objc func appEnteredForeground() {
+        do {
+            try challengesController.performFetch()
+            challenges = challengesController.fetchedObjects ?? []
+        } catch {
+            print("Failed to fetch items on move to foreground.")
+        }
     }
 }
 
