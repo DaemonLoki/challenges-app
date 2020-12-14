@@ -8,6 +8,7 @@
 import Foundation
 import CoreData
 import CoreGraphics
+import SwiftUI
 
 class ChallengeDetailViewModel: NSObject, ObservableObject {
     @Published var challenge: Challenge
@@ -40,7 +41,7 @@ class ChallengeDetailViewModel: NSObject, ObservableObject {
         do {
             try challengesController.performFetch()
             guard let unwrappedChallenge = challengesController.fetchedObjects?.first else { fatalError("Couldn't find challenge with id \(id)") }
-            self.challenge = unwrappedChallenge
+            challenge = unwrappedChallenge
             
             // set publishers
             dailyCount = unwrappedChallenge.dailyRepetitions(for: Date())
@@ -54,6 +55,8 @@ class ChallengeDetailViewModel: NSObject, ObservableObject {
         valuesOfLastWeek = Date().daysForWeekBefore.map {
             challenge.heightOfBar(for: $0, with: ChallengeDetailViewModel.maxHeight)
         }
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(appEnteredForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
     }
     
     func addAction(with count: Double, at date: Date) throws {
@@ -75,6 +78,18 @@ class ChallengeDetailViewModel: NSObject, ObservableObject {
         valuesOfLastWeek = Date().daysForWeekBefore.map {
             challenge.heightOfBar(for: $0, with: ChallengeDetailViewModel.maxHeight)
         }
+    }
+    
+    @objc func appEnteredForeground() {
+        do {
+            try challengesController.performFetch()
+            guard let unwrappedChallenge = challengesController.fetchedObjects?.first else { fatalError("Couldn't find challenge with id") }
+            challenge = unwrappedChallenge
+        } catch {
+            print("Failed to fetch challenge item on move to foreground.")
+        }
+        
+        updatePublishers()
     }
 }
 
