@@ -33,7 +33,7 @@ struct ContentView: View {
                 }
             }
             .listStyle(PlainListStyle())
-            .navigationTitle("Challenges")
+            .navigationTitle("WillDo")
             .navigationBarItems(trailing: HStack {
                 Button(action: {
                     showCreateChallengeSheet = true
