@@ -25,9 +25,14 @@ struct CreateChallengeForm: View {
     @State private var endDate = Date()
     @State private var dailyGoal: String = ""
     
+    @State private var selectedRegularGoal = 0
+    
     var infoMissing: Bool {
         name.isEmpty || goal.isEmpty
     }
+    
+    var regularGoalOptions = ["daily", "weekly", "monthly", "yearly"]
+    
     
     var body: some View {
         NavigationView {
@@ -51,13 +56,20 @@ struct CreateChallengeForm: View {
                     }
                 }
                 
-                Section(header: Text("Daily goal")) {
+                Section(header: Text("Regular goal")) {
                     Toggle(isOn: $includeDailyGoal.animation(.easeInOut), label: {
-                        Text("Include daily goal")
+                        Text("Include regular goal")
                     })
                     
                     if includeDailyGoal {
-                        TextField("Add daily goal", text: $dailyGoal)
+                        Picker(selection: $selectedRegularGoal, label: Text("Regular goal"), content: {
+                            ForEach(0 ..< regularGoalOptions.count) {
+                                Text(self.regularGoalOptions[$0])
+                            }
+                        })
+                        .pickerStyle(SegmentedPickerStyle())
+                        
+                        TextField("Add \(regularGoalOptions[selectedRegularGoal]) goal", text: $dailyGoal)
                             .keyboardType(.decimalPad)
                     }
                 }
@@ -65,7 +77,7 @@ struct CreateChallengeForm: View {
                 Section {
                     Button(action: {
                         do {
-                            try viewModel.tryCreateChallenge(named: name, with: Double(goal) ?? 0, regularGoal: includeDailyGoal ? Double(dailyGoal) : nil, endDate: includeEndDate ? endDate : nil)
+                            try viewModel.tryCreateChallenge(named: name, with: Double(goal) ?? 0, regularGoal: includeDailyGoal ? Double(dailyGoal) : nil, endDate: includeEndDate ? endDate : nil, frequency: regularGoalOptions[selectedRegularGoal])
                             presentationMode.wrappedValue.dismiss()
                         } catch {
                             print(error.localizedDescription)

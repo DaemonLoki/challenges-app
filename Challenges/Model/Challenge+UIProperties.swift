@@ -21,6 +21,21 @@ extension Challenge {
         .reduce(0.0, +)
     }
     
+    func weeklyRepetitions(for date: Date) -> Double {
+        // TODO
+        return 0.0
+    }
+    
+    func monthlyRepetitions(for date: Date) -> Double {
+        // TODO
+        return 0.0
+    }
+    
+    func yearlyRepetitions(for date: Date) -> Double {
+        // TODO
+        return 0.0
+    }
+    
     var totalCount: Double {
         return actionsArray
             .map { $0.count }

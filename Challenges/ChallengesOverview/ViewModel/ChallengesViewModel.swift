@@ -49,7 +49,7 @@ class ChallengesViewModel: NSObject, ObservableObject {
         }
     }
     
-    func tryCreateChallenge(named name: String, with goal: Double, regularGoal: Double?, endDate: Date?) throws {
+    func tryCreateChallenge(named name: String, with goal: Double, regularGoal: Double?, endDate: Date?, frequency: String?) throws {
         let challenge = Challenge(context: managedObjectContext)
         
         // set basic data
@@ -67,8 +67,13 @@ class ChallengesViewModel: NSObject, ObservableObject {
             challenge.regularGoal = regularGoal
         }
         
+        if let unwrappedFrequency = frequency {
+            challenge.frequency = unwrappedFrequency
+        } else {
+            challenge.frequency = "daily"
+        }
+        
         // set data that is not supported yet
-        challenge.frequency = "daily"
         challenge.isActive = true
         challenge.sendReminders = false
         
