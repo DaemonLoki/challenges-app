@@ -8,26 +8,18 @@
 import SwiftUI
 import CoreData
 
-struct DailyCountCard: View {
+struct RegularCountCard: View {
     
     @Environment(\.colorScheme) var colorScheme
+        
+    var regularCount: Double
+    var regularGoal: Double
+    var frequency: ChallengeFrequency
+    var circlePercentage: Double
+    var goalReached: Bool
     
-    @ObservedObject var viewModel: ChallengeDetailViewModel
-    
-    @State private var circleDegree: Double = 0
-    
-    var count: Double {
-        viewModel.challenge.dailyRepetitions(for: Date())
-    }
-    
-    var circlePercentage: Double {
-        return count * 360 / viewModel.challenge.regularGoal
-    }
-    
-    var goalReached: Bool {
-        return count >= viewModel.challenge.regularGoal
-    }
-    
+    @Binding var circleDegree: Double
+        
     var body: some View {
         ZStack {
             VisualEffectBlur(blurStyle: colorScheme == .dark ? .systemThinMaterialDark : .systemThinMaterialLight, vibrancyStyle: .separator) {
@@ -40,35 +32,28 @@ struct DailyCountCard: View {
             }
             
             VStack {
-                Text("DAILY")
+                Text(frequency.rawValue.uppercased())
                     .font(.footnote)
-                Text(count.formatTwoDigitsMax())
+                Text(regularCount.formatTwoDigitsMax())
                     .font(.largeTitle)
                 
-                Text(viewModel.challenge.regularGoal.formatTwoDigitsMax())
+                Text(regularGoal.formatTwoDigitsMax())
             }
             
             if !goalReached {
-                ProgressArc(currentValue: circleDegree, goalValue: viewModel.challenge.regularGoal)
+                ProgressArc(currentValue: circleDegree, goalValue: regularGoal)
                     .frame(width: 120, height: 120)
             }
         }
         .frame(width: 200, height: 200)
         .clipShape(RoundedRectangle(cornerRadius: 25.0, style: .continuous))
         .shadow(radius: goalReached ? 10 : 2)
-        .onReceive(viewModel.$dailyCount, perform: { value in
-            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(circleDegree == 0 ? 300 : 0)) {
-                withAnimation(Animation.spring()) {
-                    circleDegree = circlePercentage
-                }
-            }
-        })
     }
 }
 
-struct DailyCountCard_Previews: PreviewProvider {
+struct RegularCountCard_Previews: PreviewProvider {
     static var previews: some View {
-        DailyCountCard(viewModel: ChallengeDetailViewModel(id: UUID(), managedObjectContext: PersistenceController.preview.container.viewContext))
+        RegularCountCard(regularCount: 20, regularGoal: 100, frequency: .weekly, circlePercentage: 20/100, goalReached: false, circleDegree: .constant(200))
     }
 }
 

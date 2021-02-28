@@ -22,7 +22,7 @@ struct ChallengeView: View {
         ZStack {
             VStack {
                 HStack {
-                    DailyCountCard(viewModel: viewModel)
+                    RegularCountWrapper(viewModel: viewModel)
                         .padding()
                     
                     TotalCountCard(totalCount: viewModel.challengeTotalCount, goal: viewModel.challengeGoal)

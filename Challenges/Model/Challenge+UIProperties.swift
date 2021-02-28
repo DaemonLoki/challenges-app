@@ -20,21 +20,34 @@ extension Challenge {
         .map { $0.count }
         .reduce(0.0, +)
     }
-    
+        
     func weeklyRepetitions(for date: Date) -> Double {
-        // TODO
-        return 0.0
+        return repetitions(for: date, of: .weekOfYear)
     }
     
     func monthlyRepetitions(for date: Date) -> Double {
-        // TODO
-        return 0.0
+        return repetitions(for: date, of: .month)
     }
     
     func yearlyRepetitions(for date: Date) -> Double {
-        // TODO
-        return 0.0
+        return repetitions(for: date, of: .year)
     }
+    
+    private func repetitions(for date: Date, of repetitionType: Calendar.Component) -> Double {
+        let calendar = Calendar.current
+        let currentUnit = calendar.component(repetitionType, from: date)
+        let currentYear = calendar.component(.year, from: date)
+        
+        return actionsArray.filter { (action: Action) -> Bool in
+            let dateUnit = calendar.component(repetitionType, from: action.unwrappedDate)
+            let dateYear = calendar.component(.year, from: action.unwrappedDate)
+            return dateUnit == currentUnit && dateYear == currentYear
+        }
+        .map { $0.count }
+        .reduce(0.0, +)
+    }
+    
+    
     
     var totalCount: Double {
         return actionsArray

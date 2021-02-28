@@ -28,6 +28,10 @@ class ChallengeDetailViewModel: NSObject, ObservableObject {
         challenge.goal
     }
     
+    var challengeFrequency: String? {
+        challenge.frequency
+    }
+    
     static let maxHeight: CGFloat = 120
     
     private let challengesController: NSFetchedResultsController<Challenge>

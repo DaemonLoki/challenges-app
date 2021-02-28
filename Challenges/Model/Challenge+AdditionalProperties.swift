@@ -18,4 +18,17 @@ extension Challenge: Identifiable {
             $0.unwrappedDate < $1.unwrappedDate
         }
     }
+    
+    var frequencyType: ChallengeFrequency {
+        switch frequency?.lowercased() {
+        case "daily":
+            return .daily
+        case "weekly":
+            return .weekly
+        case "monthly":
+            return .monthly
+        default:
+            return .yearly
+        }
+    }
 }
