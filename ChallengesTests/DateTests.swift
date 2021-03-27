@@ -63,6 +63,22 @@ class DateTests: XCTestCase {
         }
         
     }
+    
+    func testDateStringFormat() throws {
+        let date1 = Date.from(day: 22, month: 10, year: 2020)!
+        XCTAssertEqual(date1.toDateString, "2020-10-22")
+        
+        let date2 = Date.from(day: 13, month: 8, year: 2004)!
+        XCTAssertEqual(date2.toDateString, "2004-08-13")
+        
+        let date3 = Date.from(day: 21, month: 6, year: 2017)!
+        XCTAssertEqual(date3.toDateString, "2017-06-21")
+    }
+    
+    func testCreateValidDateFromDayMonthYear() throws {
+        let validDate = Date.from(day: 20, month: 10, year: 2010)
+        XCTAssertNotNil(validDate)
+    }
 
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
