@@ -7,6 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC05B8F425F21A6A006E07AD /* RegularCountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC05B8F325F21A6A006E07AD /* RegularCountTests.swift */; };
+		AC05B8F825F21E76006E07AD /* Challenge+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBD3B89256501B900A2508B /* Challenge+CoreDataClass.swift */; };
+		AC05B8FC25F21E7B006E07AD /* Challenge+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBD3B8A256501B900A2508B /* Challenge+CoreDataProperties.swift */; };
+		AC05B90025F21E8C006E07AD /* Challenge+Previews.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3D22822585166B00334594 /* Challenge+Previews.swift */; };
+		AC05B90425F21E91006E07AD /* Action+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBD3B90256501CF00A2508B /* Action+CoreDataClass.swift */; };
+		AC05B90825F21E95006E07AD /* Action+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBD3B91256501CF00A2508B /* Action+CoreDataProperties.swift */; };
+		AC05B90D25F21ED4006E07AD /* Action+Previews.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC05B90C25F21ED4006E07AD /* Action+Previews.swift */; };
+		AC05B91125F22121006E07AD /* Challenge+UIProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3D227D2585163900334594 /* Challenge+UIProperties.swift */; };
+		AC05B91525F221CF006E07AD /* Challenge+FetchRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF118EB258246A700AD1D80 /* Challenge+FetchRequests.swift */; };
+		AC05B91925F221D3006E07AD /* Challenge+StorageKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3D226F25837EF000334594 /* Challenge+StorageKeys.swift */; };
+		AC05B91D25F221DC006E07AD /* Challenge+AdditionalProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3D2287258516C900334594 /* Challenge+AdditionalProperties.swift */; };
+		AC05B92125F221E0006E07AD /* ChallengeFrequency.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF699FC25E9308B00572BE2 /* ChallengeFrequency.swift */; };
+		AC05B92525F221E4006E07AD /* Action+Previews.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC05B90C25F21ED4006E07AD /* Action+Previews.swift */; };
+		AC05B92925F221FC006E07AD /* Comparable+Clamping.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA73DFA256AAA21008BD1B7 /* Comparable+Clamping.swift */; };
+		AC05B92D25F222AB006E07AD /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC325FF92551EE40000D14B7 /* Persistence.swift */; };
 		AC0A55E8255C754D00F703FE /* LinearGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0A55E7255C754D00F703FE /* LinearGradient.swift */; };
 		AC0A55ED255C770200F703FE /* Color+Gradients.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0A55EC255C770200F703FE /* Color+Gradients.swift */; };
 		AC0A55F2255C7A5A00F703FE /* CreateActionContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0A55F1255C7A5A00F703FE /* CreateActionContainer.swift */; };
@@ -67,6 +82,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AC05B8F325F21A6A006E07AD /* RegularCountTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularCountTests.swift; sourceTree = "<group>"; };
+		AC05B90C25F21ED4006E07AD /* Action+Previews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Action+Previews.swift"; sourceTree = "<group>"; };
 		AC0A55E7255C754D00F703FE /* LinearGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinearGradient.swift; sourceTree = "<group>"; };
 		AC0A55EC255C770200F703FE /* Color+Gradients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Gradients.swift"; sourceTree = "<group>"; };
 		AC0A55F1255C7A5A00F703FE /* CreateActionContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateActionContainer.swift; sourceTree = "<group>"; };
@@ -194,6 +211,7 @@
 				AC3260072551EE41000D14B7 /* ChallengesTests.swift */,
 				AC3260092551EE41000D14B7 /* Info.plist */,
 				ACA73DEE256A7C46008BD1B7 /* DateTests.swift */,
+				AC05B8F325F21A6A006E07AD /* RegularCountTests.swift */,
 			);
 			path = ChallengesTests;
 			sourceTree = "<group>";
@@ -269,6 +287,7 @@
 				AC3D22822585166B00334594 /* Challenge+Previews.swift */,
 				AC3D2287258516C900334594 /* Challenge+AdditionalProperties.swift */,
 				ACF699FC25E9308B00572BE2 /* ChallengeFrequency.swift */,
+				AC05B90C25F21ED4006E07AD /* Action+Previews.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -456,6 +475,7 @@
 				ACF699FD25E9308B00572BE2 /* ChallengeFrequency.swift in Sources */,
 				ACA1E50F2554AD6300E18CE7 /* CreateActionForm.swift in Sources */,
 				ACBD3B8B256501B900A2508B /* Challenge+CoreDataClass.swift in Sources */,
+				AC05B90D25F21ED4006E07AD /* Action+Previews.swift in Sources */,
 				AC0A55ED255C770200F703FE /* Color+Gradients.swift in Sources */,
 				ACBD3B92256501CF00A2508B /* Action+CoreDataClass.swift in Sources */,
 				ACDB69652581824B0011658F /* ProgressArc.swift in Sources */,
@@ -480,9 +500,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC05B92925F221FC006E07AD /* Comparable+Clamping.swift in Sources */,
+				AC05B8F825F21E76006E07AD /* Challenge+CoreDataClass.swift in Sources */,
+				AC05B92D25F222AB006E07AD /* Persistence.swift in Sources */,
+				AC05B91925F221D3006E07AD /* Challenge+StorageKeys.swift in Sources */,
+				AC05B92125F221E0006E07AD /* ChallengeFrequency.swift in Sources */,
+				AC05B8F425F21A6A006E07AD /* RegularCountTests.swift in Sources */,
 				AC3260082551EE41000D14B7 /* ChallengesTests.swift in Sources */,
 				ACA73DEF256A7C46008BD1B7 /* DateTests.swift in Sources */,
+				AC05B90025F21E8C006E07AD /* Challenge+Previews.swift in Sources */,
 				ACA73DF6256A7C7B008BD1B7 /* Date+DaysForWeek.swift in Sources */,
+				AC05B91125F22121006E07AD /* Challenge+UIProperties.swift in Sources */,
+				AC05B8FC25F21E7B006E07AD /* Challenge+CoreDataProperties.swift in Sources */,
+				AC05B91D25F221DC006E07AD /* Challenge+AdditionalProperties.swift in Sources */,
+				AC05B90425F21E91006E07AD /* Action+CoreDataClass.swift in Sources */,
+				AC05B92525F221E4006E07AD /* Action+Previews.swift in Sources */,
+				AC05B91525F221CF006E07AD /* Challenge+FetchRequests.swift in Sources */,
+				AC05B90825F21E95006E07AD /* Action+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

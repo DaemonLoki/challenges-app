@@ -31,4 +31,13 @@ extension Date {
         return dateFormatter.string(from: self)
     }
     
+    static func from(day: Int, month: Int, year: Int) -> Date? {
+        var dateComponents = DateComponents()
+        dateComponents.year = year
+        dateComponents.month = month
+        dateComponents.day = day
+        
+        return Calendar.current.date(from: dateComponents)
+    }
+    
 }

@@ -53,19 +53,11 @@ class DateTests: XCTestCase {
     func testPreviousDaysForSpecificDate() throws {
         let startDay = 22
         
-        var dateComponents = DateComponents()
-        dateComponents.year = 2020
-        dateComponents.month = 10
-        dateComponents.day = startDay
-        
-        let calendar = Calendar.current
-        
-        guard let startDate = calendar.date(from: dateComponents) else { return }
+        guard let startDate = Date.from(day: startDay, month: 10, year: 2020) else { return }
         let daysOfWeek = startDate.daysForWeekBefore
         
         for i in 0 ..< 7 {
-            dateComponents.day = startDay - i
-            guard let dateToCheck = calendar.date(from: dateComponents) else { break }
+            guard let dateToCheck = Date.from(day: startDay - i, month: 10, year: 2020) else { break }
             
             XCTAssertTrue(daysOfWeek.contains(dateToCheck), "\(dateToCheck) was not present in list of days")
         }

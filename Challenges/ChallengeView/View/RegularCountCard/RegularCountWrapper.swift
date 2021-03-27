@@ -12,7 +12,7 @@ struct RegularCountWrapper: View {
     @ObservedObject var viewModel: ChallengeDetailViewModel
     
     var count: Double {
-        viewModel.challenge.dailyRepetitions(for: Date())
+        viewModel.regularCount
     }
     
     var circlePercentage: Double {
@@ -34,7 +34,7 @@ struct RegularCountWrapper: View {
             goalReached: goalReached,
             circleDegree: $circleDegree
         )
-            .onReceive(viewModel.$dailyCount, perform: { value in
+            .onReceive(viewModel.$regularCount, perform: { value in
                 DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(circleDegree == 0 ? 300 : 0)) {
                     withAnimation(Animation.spring()) {
                         circleDegree = circlePercentage

@@ -9,7 +9,7 @@ import Foundation
 
 extension Challenge {
     static var preview: Challenge {
-        let challenge = Challenge()
+        let challenge = Challenge(context: PersistenceController.preview.container.viewContext)
         challenge.id = UUID()
         challenge.start = Date()
         challenge.name = "Challenge Preview"

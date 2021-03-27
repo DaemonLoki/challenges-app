@@ -14,6 +14,7 @@ class ChallengeDetailViewModel: NSObject, ObservableObject {
     @Published var challenge: Challenge
     
     @Published var dailyCount: Double
+    @Published var regularCount: Double
     @Published var valuesOfLastWeek: [CGFloat] = []
     
     var challengeName: String {
@@ -49,6 +50,16 @@ class ChallengeDetailViewModel: NSObject, ObservableObject {
             
             // set publishers
             dailyCount = unwrappedChallenge.dailyRepetitions(for: Date())
+            switch unwrappedChallenge.frequencyType {
+            case .daily:
+                regularCount = unwrappedChallenge.dailyRepetitions(for: Date())
+            case .weekly:
+                regularCount = unwrappedChallenge.weeklyRepetitions(for: Date())
+            case .monthly:
+                regularCount = unwrappedChallenge.monthlyRepetitions(for: Date())
+            case .yearly:
+                regularCount = unwrappedChallenge.yearlyRepetitions(for: Date())
+            }
         } catch {
             fatalError("Failed to fetch item for challenge with id \(id)")
         }
