@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AC05B8F425F21A6A006E07AD /* RegularCountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC05B8F325F21A6A006E07AD /* RegularCountTests.swift */; };
+		AC05B8F425F21A6A006E07AD /* DailyRepetitionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC05B8F325F21A6A006E07AD /* DailyRepetitionsTests.swift */; };
 		AC05B8F825F21E76006E07AD /* Challenge+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBD3B89256501B900A2508B /* Challenge+CoreDataClass.swift */; };
 		AC05B8FC25F21E7B006E07AD /* Challenge+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBD3B8A256501B900A2508B /* Challenge+CoreDataProperties.swift */; };
 		AC05B90025F21E8C006E07AD /* Challenge+Previews.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3D22822585166B00334594 /* Challenge+Previews.swift */; };
@@ -84,7 +84,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		AC05B8F325F21A6A006E07AD /* RegularCountTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularCountTests.swift; sourceTree = "<group>"; };
+		AC05B8F325F21A6A006E07AD /* DailyRepetitionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyRepetitionsTests.swift; sourceTree = "<group>"; };
 		AC05B90C25F21ED4006E07AD /* Action+Previews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Action+Previews.swift"; sourceTree = "<group>"; };
 		AC0A55E7255C754D00F703FE /* LinearGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinearGradient.swift; sourceTree = "<group>"; };
 		AC0A55EC255C770200F703FE /* Color+Gradients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Gradients.swift"; sourceTree = "<group>"; };
@@ -214,7 +214,7 @@
 				AC3260072551EE41000D14B7 /* ChallengesTests.swift */,
 				AC3260092551EE41000D14B7 /* Info.plist */,
 				ACA73DEE256A7C46008BD1B7 /* DateTests.swift */,
-				AC05B8F325F21A6A006E07AD /* RegularCountTests.swift */,
+				AC05B8F325F21A6A006E07AD /* DailyRepetitionsTests.swift */,
 			);
 			path = ChallengesTests;
 			sourceTree = "<group>";
@@ -510,7 +510,7 @@
 				AC05B92D25F222AB006E07AD /* Persistence.swift in Sources */,
 				AC05B91925F221D3006E07AD /* Challenge+StorageKeys.swift in Sources */,
 				AC05B92125F221E0006E07AD /* ChallengeFrequency.swift in Sources */,
-				AC05B8F425F21A6A006E07AD /* RegularCountTests.swift in Sources */,
+				AC05B8F425F21A6A006E07AD /* DailyRepetitionsTests.swift in Sources */,
 				AC3260082551EE41000D14B7 /* ChallengesTests.swift in Sources */,
 				ACA73DEF256A7C46008BD1B7 /* DateTests.swift in Sources */,
 				AC05B90025F21E8C006E07AD /* Challenge+Previews.swift in Sources */,
