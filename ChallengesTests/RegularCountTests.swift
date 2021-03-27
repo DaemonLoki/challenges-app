@@ -8,22 +8,12 @@
 import XCTest
 
 class RegularCountTests: XCTestCase {
-    let challenge = Challenge.preview
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-        
-    }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
+    func testDailyWithOneAction() throws {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
-        challenge.addToActions(Action.preview)
-        XCTAssertEqual(challenge.dailyRepetitions(for: Date.from(day: 22, month: 10, year: 2020)!), 20)
+        let actions = [Action.preview]
+        XCTAssertEqual(Challenge.dailyRepetitions(for: Date.from(day: 22, month: 10, year: 2020)!, in: actions), 20)
     }
 
     func testPerformanceExample() throws {

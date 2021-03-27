@@ -27,7 +27,7 @@ struct WeeklyGraphCard: View {
                     }
                     .frame(height: maxHeight)
                     
-                    Text("\(viewModel.challenge.dailyRepetitions(for: currentDate.daysForWeekBefore[index]).formatTwoDigitsMax())")
+                    Text("\(Challenge.dailyRepetitions(for: currentDate.daysForWeekBefore[index], in: viewModel.challenge.actionsArray).formatTwoDigitsMax())")
                     
                     Text(currentDate.daysForWeekBefore[index].getWeekday)
                         .font(.caption)

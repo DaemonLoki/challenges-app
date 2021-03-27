@@ -49,10 +49,10 @@ class ChallengeDetailViewModel: NSObject, ObservableObject {
             challenge = unwrappedChallenge
             
             // set publishers
-            dailyCount = unwrappedChallenge.dailyRepetitions(for: Date())
+            dailyCount = Challenge.dailyRepetitions(for: Date(), in: unwrappedChallenge.actionsArray)
             switch unwrappedChallenge.frequencyType {
             case .daily:
-                regularCount = unwrappedChallenge.dailyRepetitions(for: Date())
+                regularCount = Challenge.dailyRepetitions(for: Date(), in: unwrappedChallenge.actionsArray)
             case .weekly:
                 regularCount = unwrappedChallenge.weeklyRepetitions(for: Date())
             case .monthly:
@@ -89,7 +89,7 @@ class ChallengeDetailViewModel: NSObject, ObservableObject {
     }
     
     private func updatePublishers() {
-        dailyCount = challenge.dailyRepetitions(for: Date())
+        dailyCount = Challenge.dailyRepetitions(for: Date(), in: challenge.actionsArray)
         valuesOfLastWeek = Date().daysForWeekBefore.map {
             challenge.heightOfBar(for: $0, with: ChallengeDetailViewModel.maxHeight)
         }

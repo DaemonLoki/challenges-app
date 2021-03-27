@@ -25,7 +25,7 @@ struct ChallengeCard: View {
                         .font(.headline)
                         .foregroundColor(.primary)
                     
-                    Text("TODAY - \(Int(challenge.dailyRepetitions(for: Date()))) / \(Int(challenge.regularGoal))")
+                    Text("TODAY - \(Int(Challenge.dailyRepetitions(for: Date(), in: challenge.actionsArray))) / \(Int(challenge.regularGoal))")
                         .font(.subheadline)
                         .foregroundColor(.secondary)
                 }
