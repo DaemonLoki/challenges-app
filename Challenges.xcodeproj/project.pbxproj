@@ -61,6 +61,7 @@
 		ACDB697B25823A480011658F /* ChallengeDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDB697A25823A480011658F /* ChallengeDetailViewModel.swift */; };
 		ACDD7BB5260F34F20090AF97 /* Date+StringFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDD7BB4260F34F20090AF97 /* Date+StringFormat.swift */; };
 		ACDD7BB9260F35D00090AF97 /* Date+StringFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDD7BB4260F34F20090AF97 /* Date+StringFormat.swift */; };
+		ACDD7BC1261387DC0090AF97 /* WeeklyRepetitionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDD7BC0261387DC0090AF97 /* WeeklyRepetitionsTests.swift */; };
 		ACF118EC258246A700AD1D80 /* Challenge+FetchRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF118EB258246A700AD1D80 /* Challenge+FetchRequests.swift */; };
 		ACF699F525E92EFA00572BE2 /* RegularCountWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF699F425E92EFA00572BE2 /* RegularCountWrapper.swift */; };
 		ACF699FD25E9308B00572BE2 /* ChallengeFrequency.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF699FC25E9308B00572BE2 /* ChallengeFrequency.swift */; };
@@ -129,6 +130,7 @@
 		ACDB696925818A550011658F /* ChallengesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengesViewModel.swift; sourceTree = "<group>"; };
 		ACDB697A25823A480011658F /* ChallengeDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeDetailViewModel.swift; sourceTree = "<group>"; };
 		ACDD7BB4260F34F20090AF97 /* Date+StringFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+StringFormat.swift"; sourceTree = "<group>"; };
+		ACDD7BC0261387DC0090AF97 /* WeeklyRepetitionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyRepetitionsTests.swift; sourceTree = "<group>"; };
 		ACF118EB258246A700AD1D80 /* Challenge+FetchRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Challenge+FetchRequests.swift"; sourceTree = "<group>"; };
 		ACF699F425E92EFA00572BE2 /* RegularCountWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularCountWrapper.swift; sourceTree = "<group>"; };
 		ACF699FC25E9308B00572BE2 /* ChallengeFrequency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeFrequency.swift; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 				AC3260092551EE41000D14B7 /* Info.plist */,
 				ACA73DEE256A7C46008BD1B7 /* DateTests.swift */,
 				AC05B8F325F21A6A006E07AD /* DailyRepetitionsTests.swift */,
+				ACDD7BC0261387DC0090AF97 /* WeeklyRepetitionsTests.swift */,
 			);
 			path = ChallengesTests;
 			sourceTree = "<group>";
@@ -521,6 +524,7 @@
 				ACDD7BB9260F35D00090AF97 /* Date+StringFormat.swift in Sources */,
 				AC05B90425F21E91006E07AD /* Action+CoreDataClass.swift in Sources */,
 				AC05B92525F221E4006E07AD /* Action+Previews.swift in Sources */,
+				ACDD7BC1261387DC0090AF97 /* WeeklyRepetitionsTests.swift in Sources */,
 				AC05B91525F221CF006E07AD /* Challenge+FetchRequests.swift in Sources */,
 				AC05B90825F21E95006E07AD /* Action+CoreDataProperties.swift in Sources */,
 			);

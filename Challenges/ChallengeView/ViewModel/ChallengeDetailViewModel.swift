@@ -54,11 +54,11 @@ class ChallengeDetailViewModel: NSObject, ObservableObject {
             case .daily:
                 regularCount = Challenge.dailyRepetitions(for: Date(), in: unwrappedChallenge.actionsArray)
             case .weekly:
-                regularCount = unwrappedChallenge.weeklyRepetitions(for: Date())
+                regularCount = Challenge.weeklyRepetitions(for: Date(), in: unwrappedChallenge.actionsArray)
             case .monthly:
-                regularCount = unwrappedChallenge.monthlyRepetitions(for: Date())
+                regularCount = Challenge.monthlyRepetitions(for: Date(), in: unwrappedChallenge.actionsArray)
             case .yearly:
-                regularCount = unwrappedChallenge.yearlyRepetitions(for: Date())
+                regularCount = Challenge.yearlyRepetitions(for: Date(), in: unwrappedChallenge.actionsArray)
             }
         } catch {
             fatalError("Failed to fetch item for challenge with id \(id)")

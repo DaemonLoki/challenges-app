@@ -17,24 +17,24 @@ extension Challenge {
             .reduce(0.0, +)
     }
         
-    func weeklyRepetitions(for date: Date) -> Double {
-        return repetitions(for: date, of: .weekOfYear)
+    static func weeklyRepetitions(for date: Date, in actions: [Action]) -> Double {
+        return Self.repetitions(for: date, of: .weekOfYear, in: actions)
     }
     
-    func monthlyRepetitions(for date: Date) -> Double {
-        return repetitions(for: date, of: .month)
+    static func monthlyRepetitions(for date: Date, in actions: [Action]) -> Double {
+        return Self.repetitions(for: date, of: .month, in: actions)
     }
     
-    func yearlyRepetitions(for date: Date) -> Double {
-        return repetitions(for: date, of: .year)
+    static func yearlyRepetitions(for date: Date, in actions: [Action]) -> Double {
+        return self.repetitions(for: date, of: .year, in: actions)
     }
     
-    private func repetitions(for date: Date, of repetitionType: Calendar.Component) -> Double {
+    private static func repetitions(for date: Date, of repetitionType: Calendar.Component, in actions: [Action]) -> Double {
         let calendar = Calendar.current
         let currentUnit = calendar.component(repetitionType, from: date)
         let currentYear = calendar.component(.year, from: date)
         
-        return actionsArray.filter { (action: Action) -> Bool in
+        return actions.filter { (action: Action) -> Bool in
             let dateUnit = calendar.component(repetitionType, from: action.unwrappedDate)
             let dateYear = calendar.component(.year, from: action.unwrappedDate)
             return dateUnit == currentUnit && dateYear == currentYear
